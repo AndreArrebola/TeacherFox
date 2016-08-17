@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Teacher Fox</string>
+    <string name="welcome">Bem vindo ao Teacher Fox!</string>
 </resources>
