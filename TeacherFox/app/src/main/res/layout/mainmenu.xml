@@ -19,7 +19,8 @@
         android:text="Test"
         android:textSize="35sp"
         android:id="@+id/avtrname"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
+        android:alpha="0.8"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
@@ -58,7 +59,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
+        android:alpha="0.8"
         android:layout_gravity="bottom|center"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="5dp"
@@ -75,12 +77,13 @@
         android:layout_toRightOf="@+id/btn_jogorapido"
         android:layout_toEndOf="@+id/btn_jogorapido">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:text="@string/estudar"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
+            android:alpha="0.8"
             android:layout_gravity="bottom|center"
             android:layout_marginLeft="25dp"
             android:layout_marginBottom="5dp" />
