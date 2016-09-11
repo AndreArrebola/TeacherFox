@@ -8,12 +8,12 @@
     <RelativeLayout
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/botao"
         android:id="@+id/btn_jogorapido"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-
+android:onClick="questao"
         >
 <ImageView
     android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
     <RelativeLayout
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/botao"
         android:id="@+id/btn_modoestudo"
         android:layout_alignTop="@+id/btn_jogorapido"
         android:layout_alignParentRight="true"
@@ -64,6 +64,40 @@
             android:alpha="0.8"
             android:layout_below="@+id/imageView"
             android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:background="@drawable/botao"
+        android:layout_below="@+id/btn_jogorapido"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/settingsicon"
+            android:scaleType="fitCenter"
+            android:layout_toLeftOf="@+id/textView"
+            android:layout_toStartOf="@+id/textView"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opcoes"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:alpha="0.8"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            android:id="@+id/textView" />
+
 
     </RelativeLayout>
     </RelativeLayout>

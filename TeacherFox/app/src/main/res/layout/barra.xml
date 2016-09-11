@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Test"
+                android:text="Raposa"
                 android:textSize="35sp"
                 android:id="@+id/avtrname"
                 android:textColor="@color/abc_primary_text_disable_only_material_light"
@@ -43,7 +43,9 @@
                 android:background="@color/colorAccent"
                 android:layout_marginBottom="5dp"
 
-                />
+                android:src="@drawable/foxpaw"
+                android:scaleType="fitCenter"
+                android:padding="2dp" />
 
             <ImageButton
                 android:layout_width="40dp"
@@ -54,7 +56,10 @@
                 android:background="@color/colorAccent"
                 android:layout_below="@+id/button"
                 android:layout_alignLeft="@+id/button"
-                android:layout_alignStart="@+id/button" />
+                android:layout_alignStart="@+id/button"
+                android:src="@drawable/shopicon"
+                android:scaleType="fitCenter"
+                android:padding="2dp" />
 
         </RelativeLayout>
     </LinearLayout>
