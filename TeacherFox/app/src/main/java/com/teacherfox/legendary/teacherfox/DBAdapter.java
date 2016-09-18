@@ -15,6 +15,12 @@ public class DBAdapter {
     }
     private String[] allColumns = { DBHelper.ID, DBHelper.ALTA, DBHelper.ENUNC,
             DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.ALTOK};
+    public Cursor AcessarQuestao(int numquest){
+        Cursor cursorquestao;
+        banco = dbHelper.getReadableDatabase();
+        cursorquestao= banco.query(DBHelper.TABLE_NAME, allColumns, DBHelper.ID + " = " + numquest, null, null, null, null);
+        return cursorquestao;
+    }
 
 
 }

@@ -24,13 +24,13 @@ public static final String ALTOK = "altok";
     private String[] allColumns = { DBHelper.ID, DBHelper.ALTA, DBHelper.ENUNC,
             DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.ALTOK};
     private static final String CRIAR_TABELA="create table " + TABLE_NAME + "(" +
-            ID + "integer primary key autoincrement, " +
-            ENUNC + "text not null, " +
-            ALTA + "text not null, " +
-            ALTB + "text not null, " +
-            ALTC + "text not null, " +
-            ALTD + "text not null, " +
-            ALTOK + "text not null);";
+            ID + " integer primary key autoincrement, " +
+            ENUNC + " text not null, " +
+            ALTA + " text not null, " +
+            ALTB + " text not null, " +
+            ALTC + " text not null, " +
+            ALTD + " text not null, " +
+            ALTOK + " text not null);";
 
     public DBHelper(Context context){
 
