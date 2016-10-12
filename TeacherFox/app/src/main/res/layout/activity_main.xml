@@ -50,11 +50,11 @@ android:background="@color/colorPrimary"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Dê um nome à raposa"
         android:ems="10"
         android:id="@+id/nomeRaposa"
         android:layout_above="@+id/button2"
         android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:layout_alignStart="@+id/button2"
+        android:hint="Dê um nome à raposa" />
 
 </RelativeLayout>

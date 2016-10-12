@@ -6,11 +6,11 @@
     >
     <include
         layout="@layout/barra"
-        android:id="@+id/include" />
+        android:id="@+id/thebar" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@+id/include"
+        android:layout_below="@+id/thebar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/scrollView">
@@ -26,10 +26,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:alpha="0.8"
+
                 android:textColor="@color/abc_primary_text_disable_only_material_light"
                 android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
-                />
+                android:id="@+id/nunciado" />
 
         </RelativeLayout>
 
@@ -45,14 +46,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-android:orientation="vertical"
+            android:orientation="vertical"
             >
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/botao"
                 android:layout_marginBottom="3dp"
-                >
+                android:onClick="resposta"
+                android:id="@+id/baltea">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,64 +67,27 @@ android:orientation="vertical"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginLeft="86dp"
-                    android:layout_marginStart="40dp" />
+                    android:layout_marginStart="40dp"
+                    android:id="@+id/altea" />
             </RelativeLayout>
 
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/botao"
-
-        android:layout_marginBottom="3dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="B) Resposta"
-            android:alpha="0.8"
-            android:textSize="23sp"
-            android:textStyle="bold"
-            android:textColor="@color/abc_primary_text_disable_only_material_light"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="86dp"
-            android:layout_marginStart="40dp" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/botao"
-
-        android:layout_marginBottom="3dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="C) Resposta"
-            android:alpha="0.8"
-            android:textSize="23sp"
-            android:textStyle="bold"
-            android:textColor="@color/abc_primary_text_disable_only_material_light"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="86dp"
-            android:layout_marginStart="40dp" />
-    </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/botao"
-
-                android:layout_marginBottom="3dp">
+                android:onClick="resposta"
+                android:layout_marginBottom="3dp"
+                android:id="@+id/balteb">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="D) resposta"
+                    android:text="B) Resposta"
                     android:alpha="0.8"
                     android:textSize="23sp"
                     android:textStyle="bold"
+                    android:id="@+id/alteb"
                     android:textColor="@color/abc_primary_text_disable_only_material_light"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
@@ -134,13 +99,62 @@ android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/botao"
-
-                android:layout_marginBottom="3dp">
+                android:onClick="resposta"
+                android:layout_marginBottom="3dp"
+                android:id="@+id/baltec">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C) Resposta"
+                    android:alpha="0.8"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/abc_primary_text_disable_only_material_light"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="86dp"
+                    android:layout_marginStart="40dp"
+                    android:id="@+id/altec"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/botao"
+                android:onClick="resposta"
+                android:layout_marginBottom="3dp"
+                android:id="@+id/balted">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="D) Resposta"
+                    android:alpha="0.8"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/abc_primary_text_disable_only_material_light"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="86dp"
+                    android:layout_marginStart="40dp"
+                    android:id="@+id/alted"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/botao"
+                android:onClick="resposta"
+                android:layout_marginBottom="3dp"
+                android:id="@+id/baltee">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="E) Resposta"
                     android:alpha="0.8"
+                    android:id="@+id/altee"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
                     android:textColor="@color/abc_primary_text_disable_only_material_light"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"

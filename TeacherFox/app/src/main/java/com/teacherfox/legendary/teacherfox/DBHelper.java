@@ -12,7 +12,7 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "bancoquestoes.db";
     public static final String TABLE_NAME = "quests";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     public static final String ID = "_id";
     public static final String ENUNC     = "enunc";
     public static final String ALTA = "alta";
@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ALTC = "altc";
     public static final String ALTD = "altd";
     public static final String ALTE = "alte";
-public static final String ALTOK = "altok";
+    public static final String ALTOK = "altok";
     private String[] allColumns = { DBHelper.ID, DBHelper.ALTA, DBHelper.ENUNC,
             DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.ALTOK};
     private static final String CRIAR_TABELA="create table " + TABLE_NAME + "(" +
@@ -30,6 +30,7 @@ public static final String ALTOK = "altok";
             ALTB + " text not null, " +
             ALTC + " text not null, " +
             ALTD + " text not null, " +
+            ALTE + " text not null, " +
             ALTOK + " text not null);";
 
     public DBHelper(Context context){
@@ -49,6 +50,23 @@ public static final String ALTOK = "altok";
         values.put(DBHelper.ALTE, "Alternativa 5");
         values.put(DBHelper.ALTOK, "Alternativa 3(ok)");
         db.insert(TABLE_NAME, null, values );
+        values.put(DBHelper.ENUNC, "Qual a resposta certa?");
+        values.put(DBHelper.ALTA, "Alternativa 1");
+        values.put(DBHelper.ALTB, "Alternativa 2(ok)");
+        values.put(DBHelper.ALTC, "Alternativa 3");
+        values.put(DBHelper.ALTD, "Alternativa 4");
+        values.put(DBHelper.ALTE, "Alternativa 5");
+        values.put(DBHelper.ALTOK, "Alternativa 2(ok)");
+        db.insert(TABLE_NAME, null, values );
+        values.put(DBHelper.ENUNC, "Qual a resposta certa?");
+        values.put(DBHelper.ALTA, "Alternativa 1");
+        values.put(DBHelper.ALTB, "Alternativa 2");
+        values.put(DBHelper.ALTC, "Alternativa 3");
+        values.put(DBHelper.ALTD, "Alternativa 4(ok)");
+        values.put(DBHelper.ALTE, "Alternativa 5");
+        values.put(DBHelper.ALTOK, "Alternativa 4(ok)");
+        db.insert(TABLE_NAME, null, values );
+        values.clear();
     }
 
     @Override

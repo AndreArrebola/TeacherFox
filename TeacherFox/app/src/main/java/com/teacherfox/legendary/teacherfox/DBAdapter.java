@@ -19,6 +19,8 @@ public class DBAdapter {
         Cursor cursorquestao;
         banco = dbHelper.getReadableDatabase();
         cursorquestao= banco.query(DBHelper.TABLE_NAME, allColumns, DBHelper.ID + " = " + numquest, null, null, null, null);
+
+        cursorquestao.moveToFirst();
         return cursorquestao;
     }
 

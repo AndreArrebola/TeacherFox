@@ -4,13 +4,24 @@ package com.teacherfox.legendary.teacherfox;
  * Created by andre on 11/09/16.
  */
 public class Questao {
-    private String enunc;
-    private String alta;
-    private String altb;
-    private String altc;
-    private String altd;
-    private String alte;
-    private String altok;
+    private String enunc="";
+    private String alta="";
+    private String altb="";
+    private String altc="";
+    private String altd="";
+    private String alte="";
+    private String altok="";
+    private String resp="";
+
+    public String getResp() {
+        return resp;
+    }
+
+    public void setResp(String resp) {
+        this.resp = resp;
+    }
+
+
 
     public String getAltok() {
         return altok;
