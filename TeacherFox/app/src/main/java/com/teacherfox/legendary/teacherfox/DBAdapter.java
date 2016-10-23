@@ -14,7 +14,7 @@ public class DBAdapter {
         dbHelper = new DBHelper(context);
     }
     private String[] allColumns = { DBHelper.ID, DBHelper.ALTA, DBHelper.ENUNC,
-            DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.ALTOK};
+            DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.COINS, DBHelper.MATERIA, DBHelper.ALTOK};
     public Cursor AcessarQuestao(int numquest){
         Cursor cursorquestao;
         banco = dbHelper.getReadableDatabase();

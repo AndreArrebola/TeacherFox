@@ -5,4 +5,5 @@ package com.teacherfox.legendary.teacherfox;
  */
 public class Avatar {
     static String nome;
+    static int money;
 }

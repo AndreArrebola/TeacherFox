@@ -1,8 +1,9 @@
 package com.teacherfox.legendary.teacherfox;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import com.firebase.client.Firebase;
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,11 +25,14 @@ public class QuestActivity extends AppCompatActivity {
         LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
         TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
         nomeraposa.setText(Avatar.nome.toString());
+
+        TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
+        dimdim.setText(String.valueOf(Avatar.money));
         String password="txt";
 
         DBAdapter acesso = new DBAdapter(getBaseContext());
         Random idquest=new Random();
-        int randomNum = idquest.nextInt((3 - 1) + 1) + 1;
+        int randomNum = idquest.nextInt((6 - 1) + 1) + 1;
         Cursor obterquestao = acesso.AcessarQuestao(randomNum);
 
         if( obterquestao != null && obterquestao.moveToFirst() ){
@@ -39,6 +43,7 @@ public class QuestActivity extends AppCompatActivity {
             quest.setAltd(obterquestao.getString(obterquestao.getColumnIndex(DBHelper.ALTD)));
             quest.setAlte(obterquestao.getString(obterquestao.getColumnIndex(DBHelper.ALTE)));
             quest.setAltok(obterquestao.getString(obterquestao.getColumnIndex(DBHelper.ALTOK)));
+            quest.setCoins(obterquestao.getInt(obterquestao.getColumnIndex(DBHelper.COINS)));
             obterquestao.close();
         }
         TextView nunc=(TextView)findViewById(R.id.nunciado);
@@ -53,41 +58,52 @@ public class QuestActivity extends AppCompatActivity {
         txt_altc.setText(quest.getAltc());
         txt_altd.setText(quest.getAltd());
         txt_alte.setText(quest.getAlte());
+        Toast.makeText(getApplicationContext(),String.valueOf(quest.getCoins()), Toast.LENGTH_SHORT).show();
 
     }
     public void resposta(View v){
+        boolean cert=false;
         switch(v.getId()) {
             case R.id.baltea:
 
                 if(quest.getAlta().equals(quest.getAltok())){
                     Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    cert=true;
                 }
                 break;
             case R.id.balteb:
 
                 if(quest.getAltb().equals(quest.getAltok())){
                     Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    cert=true;
                 }
                 break;
             case R.id.baltec:
 
                 if(quest.getAltc().equals(quest.getAltok())){
                     Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    cert=true;
                 }
                 break;
             case R.id.balted:
 
                 if(quest.getAltd().equals(quest.getAltok())){
                     Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    cert=true;
                 }
                 break;
             case R.id.baltee:
 
                 if(quest.getAlte().equals(quest.getAltok())){
                     Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    cert=true;
                 }
                 break;
         }
+        Intent result=new Intent(this, Results.class);
+        result.putExtra("resultado", cert);
+        result.putExtra("coins", quest.getCoins());
+        startActivity(result);
         this.finish();
 
     }

@@ -61,7 +61,8 @@
                 android:layout_alignStart="@+id/button"
                 android:src="@drawable/shopicon"
                 android:scaleType="fitCenter"
-                android:padding="2dp" />
+                android:padding="2dp"
+                android:id="@+id/imageButton" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -72,6 +73,18 @@
                 android:src="@drawable/rapo"
                 android:layout_alignParentBottom="true"
                 android:layout_margin="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="00"
+                android:id="@+id/txMoney"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:layout_below="@+id/avtrname"
+                android:layout_alignRight="@+id/avtrname"
+                android:layout_alignEnd="@+id/avtrname" />
 
         </RelativeLayout>
     </LinearLayout>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.teacherfox.legendary.teacherfox">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,11 +19,8 @@
         </activity>
         <activity
             android:name=".QuestActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
+        <activity android:name=".Results"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-
 
 </manifest>

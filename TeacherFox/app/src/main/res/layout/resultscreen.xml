@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.teacherfox.legendary.teacherfox.Results">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Resultado"
+        android:id="@+id/txRes"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="+00$"
+        android:id="@+id/gotMoney"
+        android:layout_marginBottom="66dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/txRes"
+        android:layout_alignEnd="@+id/txRes" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView5"
+        android:src="@drawable/foxx"
+        android:layout_below="@+id/txRes"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/gotMoney" />
+
+    <RelativeLayout
+        android:background="@drawable/botaoorg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView5"
+        android:layout_marginTop="40dp"
+        android:layout_alignLeft="@+id/txRes"
+        android:layout_alignStart="@+id/txRes"
+        android:layout_alignRight="@+id/gotMoney"
+        android:onClick="returnToMenu"
+        android:layout_alignEnd="@+id/gotMoney">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Menu"
+            android:id="@+id/textView4"
+            android:textSize="35sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

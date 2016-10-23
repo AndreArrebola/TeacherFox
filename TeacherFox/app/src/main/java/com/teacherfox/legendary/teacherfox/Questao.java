@@ -12,6 +12,25 @@ public class Questao {
     private String alte="";
     private String altok="";
     private String resp="";
+    private int coins=0;
+    private String materia="";
+    public String getMateria() {
+        return materia;
+    }
+
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
+
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
+
 
     public String getResp() {
         return resp;

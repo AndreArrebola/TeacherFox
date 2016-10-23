@@ -28,7 +28,7 @@
                 android:alpha="0.8"
 
                 android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                android:text="Esta é a questão"
 
                 android:id="@+id/nunciado" />
 
@@ -60,14 +60,14 @@
                     android:layout_height="wrap_content"
                     android:text="A) Resposta"
                     android:alpha="0.8"
-                    android:textSize="23sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     android:textColor="@color/abc_primary_text_disable_only_material_light"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="86dp"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="20dp"
                     android:id="@+id/altea" />
             </RelativeLayout>
 
@@ -85,15 +85,15 @@
                     android:layout_height="wrap_content"
                     android:text="B) Resposta"
                     android:alpha="0.8"
-                    android:textSize="23sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     android:id="@+id/alteb"
                     android:textColor="@color/abc_primary_text_disable_only_material_light"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="86dp"
-                    android:layout_marginStart="40dp" />
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -107,14 +107,14 @@
                     android:layout_height="wrap_content"
                     android:text="C) Resposta"
                     android:alpha="0.8"
-                    android:textSize="23sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     android:textColor="@color/abc_primary_text_disable_only_material_light"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="86dp"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="20dp"
                     android:id="@+id/altec"
                     />
             </RelativeLayout>
@@ -130,14 +130,14 @@
                     android:layout_height="wrap_content"
                     android:text="D) Resposta"
                     android:alpha="0.8"
-                    android:textSize="23sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     android:textColor="@color/abc_primary_text_disable_only_material_light"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="86dp"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="20dp"
                     android:id="@+id/alted"/>
             </RelativeLayout>
             <RelativeLayout
@@ -153,14 +153,14 @@
                     android:text="E) Resposta"
                     android:alpha="0.8"
                     android:id="@+id/altee"
-                    android:textSize="23sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     android:textColor="@color/abc_primary_text_disable_only_material_light"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginLeft="86dp"
-                    android:layout_marginStart="40dp" />
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="20dp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
