@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         Avatar.nome= saveFile.getString("Nome raposa", "undefined");
         Avatar.money= saveFile.getInt("Dinheiro", 0);
+        Avatar.exp= saveFile.getInt("Experiencia", 0);
+        Avatar.lvl= saveFile.getInt("Nivel", 0);
         if(Avatar.nome.equals("undefined")){
             setContentView(R.layout.activity_main);
         }else{
@@ -31,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
             TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
             nomeraposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
+            ImageButton btnloja=(ImageButton)barra.findViewById(R.id.imageButton);
+            btnloja.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    irLoja();
+                }
+            });
         }
 
 
@@ -39,15 +50,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        Toast.makeText(getApplicationContext(),"Testando, " + Avatar.nome , Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"Dados salvos" , Toast.LENGTH_SHORT).show();
         if(Avatar.nome.equals("undefined")){
 
         }else{
         LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
         TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
+
+            TextView level = (TextView)barra.findViewById(R.id.txLvl);
+            TextView texp = (TextView)barra.findViewById(R.id.txExp);
         dimdim.setText(String.valueOf(Avatar.money));
+            texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
+            level.setText(String.valueOf(Avatar.lvl));
             SharedPreferences.Editor editSave = saveFile.edit();
             editSave.putInt("Dinheiro", Avatar.money);
+            editSave.putInt("Experiencia", Avatar.exp);
+            editSave.putInt("Nivel", Avatar.lvl);
             editSave.apply();
         }
 
@@ -58,6 +76,8 @@ Avatar.nome=avatar.getText().toString();
         SharedPreferences.Editor editSave = saveFile.edit();
         editSave.putString("Nome raposa", Avatar.nome);
         Avatar.money=0;
+        Avatar.exp=0;
+                Avatar.money=0;
         editSave.putInt("Dinheiro", Avatar.money);
         editSave.apply();
         setContentView(R.layout.mainmenu);
@@ -73,6 +93,10 @@ nomeraposa.setText(Avatar.nome);
     }
     public void questao(View view){
         Intent novatela = new Intent(this, QuestActivity.class);
+        startActivity(novatela);
+    }
+    public void irLoja(){
+        Intent novatela = new Intent(this, Loja.class);
         startActivity(novatela);
     }
 }

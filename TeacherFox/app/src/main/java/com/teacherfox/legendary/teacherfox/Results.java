@@ -20,6 +20,10 @@ Boolean res=false;
             txresultado.setText("Acertou!");
             txmoney.setText("+" + premio + "$");
             Avatar.money=Avatar.money+premio;
+            boolean lup = addExp(10);
+            if(lup){
+                txresultado.setText("LEVEL " + Avatar.lvl);
+            }
 
         }else{
             txresultado.setText("Errou");
@@ -28,5 +32,18 @@ Boolean res=false;
 
     public void returnToMenu(View view){
         finish();
+    }
+    public boolean addExp(int x){
+        Avatar.exp=Avatar.exp+x;
+        boolean lvlup=false;
+        for(int cont=0;cont<=5;cont++){
+            if(Avatar.levels[cont]<=Avatar.exp){
+                Avatar.lvl=cont;
+
+                lvlup=true;
+            }
+        }
+        return lvlup;
+
     }
 }

@@ -27,7 +27,11 @@ public class QuestActivity extends AppCompatActivity {
         nomeraposa.setText(Avatar.nome.toString());
 
         TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
+        TextView level = (TextView)barra.findViewById(R.id.txLvl);
+        TextView texp = (TextView)barra.findViewById(R.id.txExp);
         dimdim.setText(String.valueOf(Avatar.money));
+        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
+        level.setText(String.valueOf(Avatar.lvl));
         String password="txt";
 
         DBAdapter acesso = new DBAdapter(getBaseContext());
@@ -107,4 +111,5 @@ public class QuestActivity extends AppCompatActivity {
         this.finish();
 
     }
+
 }
