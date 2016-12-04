@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
             TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
             nomeraposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
-            ImageButton btnloja=(ImageButton)barra.findViewById(R.id.imageButton);
+            /* ImageButton btnloja=(ImageButton)barra.findViewById(R.id.imageButton);
             btnloja.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
                     irLoja();
                 }
-            });
+            });*/
         }
 
 
@@ -95,7 +95,7 @@ nomeraposa.setText(Avatar.nome);
         Intent novatela = new Intent(this, QuestActivity.class);
         startActivity(novatela);
     }
-    public void irLoja(){
+    public void irLoja(View v){
         Intent novatela = new Intent(this, Loja.class);
         startActivity(novatela);
     }

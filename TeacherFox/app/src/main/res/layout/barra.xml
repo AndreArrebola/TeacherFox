@@ -11,7 +11,7 @@
 
         android:layout_gravity="right"
         android:id="@+id/topbar"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/butbg">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/button"
-                android:background="@color/colorAccent"
+                android:background="@drawable/botaoorgmdbg"
                 android:layout_marginBottom="5dp"
 
                 android:src="@drawable/foxpaw"
@@ -55,7 +55,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:background="@color/colorAccent"
+                android:background="@drawable/botaoorgmdbg"
                 android:layout_below="@+id/button"
                 android:layout_alignLeft="@+id/button"
                 android:layout_alignStart="@+id/button"
@@ -64,7 +64,7 @@
                 android:padding="2dp"
                 android:id="@+id/imageButton"
 
-                />
+                android:visibility="invisible" />
 
             <RelativeLayout
                 android:layout_width="90dp"
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="00"
+                android:text="$00"
                 android:id="@+id/txMoney"
                 android:textStyle="bold"
                 android:textSize="30sp"
@@ -101,7 +101,8 @@
                 android:id="@+id/txLvl"
                 android:textStyle="bold"
                 android:textSize="30sp"
-                android:layout_below="@+id/avtrname"
+                android:layout_alignBaseline="@+id/txMoney"
+                android:layout_alignBottom="@+id/txMoney"
                 android:layout_toLeftOf="@+id/txExp"
                 android:layout_toStartOf="@+id/txExp" />
 

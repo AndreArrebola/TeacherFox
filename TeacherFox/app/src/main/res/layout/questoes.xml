@@ -28,7 +28,7 @@
                 android:alpha="0.8"
 
                 android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:text="Esta é a questão"
+                android:text="Esta é a questão que será obtida através do banco de dados."
 
                 android:id="@+id/nunciado" />
 
@@ -51,7 +51,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/botao"
+                android:background="@drawable/botaomd"
                 android:layout_marginBottom="3dp"
                 android:onClick="resposta"
                 android:id="@+id/baltea">
@@ -76,7 +76,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/botao"
+                android:background="@drawable/botaomd"
                 android:onClick="resposta"
                 android:layout_marginBottom="3dp"
                 android:id="@+id/balteb">
@@ -98,7 +98,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/botao"
+                android:background="@drawable/botaomd"
                 android:onClick="resposta"
                 android:layout_marginBottom="3dp"
                 android:id="@+id/baltec">
@@ -121,7 +121,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/botao"
+                android:background="@drawable/botaomd"
                 android:onClick="resposta"
                 android:layout_marginBottom="3dp"
                 android:id="@+id/balted">
@@ -143,7 +143,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/botao"
+                android:background="@drawable/botaomd"
                 android:onClick="resposta"
                 android:layout_marginBottom="3dp"
                 android:id="@+id/baltee">

@@ -9,24 +9,94 @@
         android:id="@+id/thebar"
         xmlns:android="http://schemas.android.com/apk/res/android" />
     <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/botao"
-        android:layout_below="@+id/thebar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="71dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="67dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@drawable/botaomd"
         android:onClick="setCloth"
-        >
+        android:id="@+id/iLoja1"
+
+        android:layout_below="@+id/textView2"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2">
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@drawable/shopicon"
-
+            android:background="@drawable/item1"
+android:layout_marginTop="5dp"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/iloja1p" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="35sp"
+            android:text="$00"
+            android:id="@+id/iLoja1c"
+            android:layout_below="@+id/iloja1p"
             android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Usar"
+            android:id="@+id/iLoja1cok"
+            android:layout_below="@+id/iloja1p"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Loja"
+        android:id="@+id/textView2"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_below="@+id/thebar"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@drawable/botaomd"
+        android:onClick="setCloth"
+        android:id="@+id/relativeLayout2"
+
+        android:layout_alignTop="@+id/iLoja1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/item1"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="35sp"
+            android:text="Usar"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/imageView4"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Usar"
+            android:id="@+id/textView5"
+            android:layout_below="@+id/imageView4"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
     </RelativeLayout>
 </RelativeLayout>

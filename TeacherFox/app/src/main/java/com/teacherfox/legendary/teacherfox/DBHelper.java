@@ -13,7 +13,8 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "bancoquestoes.db";
     public static final String TABLE_NAME = "quests";
     public static final String TABLE_LOJA = "itensloja";
-    private static final int DATABASE_VERSION = 10;
+    public static final String TABLE_BUYOK = "buyok";
+    private static final int DATABASE_VERSION = 20;
     public static final String ID = "_id";
     public static final String ENUNC     = "enunc";
     public static final String ALTA = "alta";
@@ -25,9 +26,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COINS = "coins";
     public static final String MATERIA="materia";
     public static final String IDITEM="_idit";
+    public static final String IDITEMOK="idit";
     public static final String IMGITEM="imgitem";
     public static final String VALORITEM="valoritem";
     public static final String COMPOK="compok";
+    public static final String IDCOMPOK="_idcok";
 
     private String[] allColumns = { DBHelper.ID, DBHelper.ALTA, DBHelper.ENUNC,
             DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.COINS, DBHelper.MATERIA, DBHelper.ALTOK};
@@ -41,13 +44,16 @@ public class DBHelper extends SQLiteOpenHelper {
             ALTE + " text not null, " +
             COINS + " integer not null, " +
             MATERIA + " text, " +
-            ALTOK + " text not null);" +
-            "" +
-            "create table itensloja( " +
-            IDITEM + "integer primary key autoincrement, " +
-            IMGITEM + "text not null, " +
-            VALORITEM + "integer not null, " +
-            COMPOK + "integer not null);";
+            ALTOK + " text not null);";
+
+    private static final String CRIAR_LOJA="create table " + TABLE_LOJA + "( " +
+            IDITEM + " integer primary key autoincrement, " +
+            IMGITEM + " text not null, " +
+            VALORITEM + " integer not null);";
+    private static final String CRIAR_COMPOK="create table " + TABLE_BUYOK +  "(" +
+            IDCOMPOK + " integer primary key autoincrement, " +
+            IDITEMOK + " integer not null, " +
+            COMPOK + " integer not null);";
 
     public DBHelper(Context context){
 
@@ -205,16 +211,26 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(DBHelper.COINS, 25);
         db.insert(TABLE_NAME, null, values );
         values.clear();
-        values.put(DBHelper.IMGITEM, "shopicon");
-        values.put(DBHelper.COINS, 50);
-        values.put(DBHelper.COMPOK, 0);
+        db.execSQL(CRIAR_LOJA);
+        db.execSQL(CRIAR_COMPOK);
+
+        int contid=1;
+        values.put(DBHelper.IMGITEM, "item1");
+        values.put(DBHelper.VALORITEM, 50);
+
         db.insert(TABLE_LOJA, null, values);
+        values.clear();
+        values.put(DBHelper.IDITEMOK, contid);
+        values.put(DBHelper.COMPOK, 0);
+        db.insert(TABLE_BUYOK, null, values);
         values.clear();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME + "; DROP TABLE IF EXISTS " + TABLE_LOJA);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOJA);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BUYOK);
         onCreate(db);
     }
 }
