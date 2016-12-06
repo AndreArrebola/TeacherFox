@@ -63,5 +63,15 @@ Log.w("app", "Cursor nulo");
 
     return tfBuy;
 }
+    public String getItemName(int id){
+        Cursor checkname;
+        String nomeitem;
+        banco=dbHelper.getReadableDatabase();
+
+        checkname=banco.query(DBHelper.TABLE_LOJA, allColumnsL, DBHelper.IDITEM + "=" + id, null, null, null, null);
+        checkname.moveToFirst();
+        nomeitem=checkname.getString(checkname.getColumnIndex(DBHelper.IMGITEM));
+        return nomeitem;
+    }
 
 }

@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -65,6 +66,9 @@ Cursor itens;
 
         }else{
             hatav.setVisibility(View.VISIBLE);
+            Log.w("teste", dba.getItemName(1));
+            int icon = getResources().getIdentifier("drawable/" + dba.getItemName(1), "drawable", getPackageName());
+            hatav.setImageResource(icon);
         }
 
 
@@ -72,10 +76,18 @@ Cursor itens;
     public void mostrarItens(){
         DBAdapter acesso = new DBAdapter(getBaseContext());
         itens=acesso.ObterLoja();
+        DBAdapter dba=new DBAdapter(this);
         TextView li1=(TextView)findViewById(R.id.iLoja1c);
         ImageView li1i=(ImageView)findViewById(R.id.iloja1p);
+        TextView li1ok=(TextView)findViewById(R.id.iLoja1cok);
         if(itens!=null && itens.moveToFirst()){
-            li1.setText(Integer.toString(itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
+            if(dba.getBuy(1)==false){
+                li1.setText(Integer.toString(itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
+
+            }else{
+               li1.setVisibility(View.INVISIBLE);
+                li1ok.setVisibility(View.VISIBLE);
+            }
             int icon = getResources().getIdentifier("drawable/" + itens.getString(itens.getColumnIndex(DBHelper.IMGITEM)), "drawable", getPackageName());
             li1i.setImageResource(icon);
         }

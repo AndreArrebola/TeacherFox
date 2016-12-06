@@ -21,7 +21,9 @@ public class Avatar {
             60,
             90
     };
-
+static int[][] positions={
+        {1,0,0,0,0}
+    };
 
 
 }
