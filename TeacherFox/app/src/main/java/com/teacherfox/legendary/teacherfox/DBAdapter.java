@@ -17,7 +17,7 @@ public class DBAdapter {
     public DBAdapter(Context context) {
         dbHelper = new DBHelper(context);
     }
-    private String[] allColumnsL = { DBHelper.IDITEM, DBHelper.IMGITEM, DBHelper.VALORITEM};
+    private String[] allColumnsL = { DBHelper.IDITEM, DBHelper.IMGITEM, DBHelper.VALORITEM, DBHelper.TIPOITEM};
     private String[] allColumnsOK = {DBHelper.IDCOMPOK, DBHelper.IDITEMOK, DBHelper.COMPOK};
     private String[] allColumns = { DBHelper.ID, DBHelper.ALTA, DBHelper.ENUNC,
             DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.COINS, DBHelper.MATERIA, DBHelper.ALTOK};

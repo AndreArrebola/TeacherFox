@@ -1,24 +1,31 @@
 package com.teacherfox.legendary.teacherfox;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Loja extends AppCompatActivity {
-Cursor itens;
+    Cursor itens;
     SharedPreferences saveFile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loja);
         mostrarItens();
+        Context context=this;
+        saveFile = context.getSharedPreferences("save", Context.MODE_PRIVATE);
         LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
         TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
         nomeraposa.setText(Avatar.nome.toString());
@@ -30,6 +37,23 @@ Cursor itens;
         texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
         level.setText(String.valueOf(Avatar.lvl));
         String tf;
+        ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
+
+
+            hatav.setVisibility(View.VISIBLE);
+            int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+            hatav.setImageResource(icon);
+            Resources r = getResources();
+            int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
+
+            int height =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][2], r.getDisplayMetrics());
+            int m1 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][5], r.getDisplayMetrics());
+
+            int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][6] , r.getDisplayMetrics());
+            RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
+            size.setMargins(m1, m2, 0, 0);
+            hatav.setLayoutParams(size);
+
         if(dba.getBuy(1)==false){
             tf="false";
         }else
@@ -65,10 +89,25 @@ Cursor itens;
             }
 
         }else{
-            hatav.setVisibility(View.VISIBLE);
-            Log.w("teste", dba.getItemName(1));
-            int icon = getResources().getIdentifier("drawable/" + dba.getItemName(1), "drawable", getPackageName());
-            hatav.setImageResource(icon);
+
+                hatav.setVisibility(View.VISIBLE);
+                Log.w("teste", dba.getItemName(1));
+                int icon = getResources().getIdentifier("drawable/" + dba.getItemName(1), "drawable", getPackageName());
+                hatav.setImageResource(icon);
+                Resources r = getResources();
+                int width = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
+
+                int height =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][2], r.getDisplayMetrics());
+                int m1 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][5], r.getDisplayMetrics());
+
+                int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][6] , r.getDisplayMetrics());
+                RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
+                size.setMargins(m1, m2, 0, 0);
+                hatav.setLayoutParams(size);
+                Avatar.saveCloth(this, 1, 1);
+
+
+
         }
 
 
@@ -85,7 +124,7 @@ Cursor itens;
                 li1.setText(Integer.toString(itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
 
             }else{
-               li1.setVisibility(View.INVISIBLE);
+                li1.setVisibility(View.INVISIBLE);
                 li1ok.setVisibility(View.VISIBLE);
             }
             int icon = getResources().getIdentifier("drawable/" + itens.getString(itens.getColumnIndex(DBHelper.IMGITEM)), "drawable", getPackageName());

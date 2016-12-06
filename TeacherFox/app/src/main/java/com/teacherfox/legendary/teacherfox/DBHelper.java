@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "quests";
     public static final String TABLE_LOJA = "itensloja";
     public static final String TABLE_BUYOK = "buyok";
-    private static final int DATABASE_VERSION = 20;
+    private static final int DATABASE_VERSION = 21;
     public static final String ID = "_id";
     public static final String ENUNC     = "enunc";
     public static final String ALTA = "alta";
@@ -29,6 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String IDITEMOK="idit";
     public static final String IMGITEM="imgitem";
     public static final String VALORITEM="valoritem";
+    public static final String TIPOITEM="tipoitem";
     public static final String COMPOK="compok";
     public static final String IDCOMPOK="_idcok";
 
@@ -49,6 +50,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CRIAR_LOJA="create table " + TABLE_LOJA + "( " +
             IDITEM + " integer primary key autoincrement, " +
             IMGITEM + " text not null, " +
+            TIPOITEM + " integer not null, " +
             VALORITEM + " integer not null);";
     private static final String CRIAR_COMPOK="create table " + TABLE_BUYOK +  "(" +
             IDCOMPOK + " integer primary key autoincrement, " +
@@ -217,6 +219,7 @@ public class DBHelper extends SQLiteOpenHelper {
         int contid=1;
         values.put(DBHelper.IMGITEM, "item1");
         values.put(DBHelper.VALORITEM, 50);
+        values.put(DBHelper.TIPOITEM, 1);
 
         db.insert(TABLE_LOJA, null, values);
         values.clear();

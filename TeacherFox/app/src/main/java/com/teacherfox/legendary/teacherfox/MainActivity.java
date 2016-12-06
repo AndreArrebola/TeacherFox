@@ -6,11 +6,15 @@ import android.content.DialogInterface;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,12 +30,15 @@ public class MainActivity extends AppCompatActivity {
         Avatar.money= saveFile.getInt("Dinheiro", 0);
         Avatar.exp= saveFile.getInt("Experiencia", 0);
         Avatar.lvl= saveFile.getInt("Nivel", 0);
+        Avatar.hatnum= saveFile.getInt("Roupa", 0);
+        Avatar.hattf=saveFile.getBoolean("Roupatf", true);
         if(Avatar.nome.equals("undefined")){
             setContentView(R.layout.activity_main);
         }else{
             setContentView(R.layout.mainmenu);
             LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
             TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
+
             nomeraposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
             /* ImageButton btnloja=(ImageButton)barra.findViewById(R.id.imageButton);
@@ -66,7 +73,27 @@ public class MainActivity extends AppCompatActivity {
             editSave.putInt("Dinheiro", Avatar.money);
             editSave.putInt("Experiencia", Avatar.exp);
             editSave.putInt("Nivel", Avatar.lvl);
+            editSave.putInt("Roupa", Avatar.hatnum);
             editSave.apply();
+            ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
+
+                hatav.setVisibility(View.VISIBLE);
+                int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+                hatav.setImageResource(icon);
+                Resources r = getResources();
+                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
+
+                int height =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][2], r.getDisplayMetrics());
+                int m1 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][5], r.getDisplayMetrics());
+
+                int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][6] , r.getDisplayMetrics());
+                RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
+                size.setMargins(m1, m2, 0, 0);
+                hatav.setLayoutParams(size);
+            
+
+
+
         }
 
     }
