@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "quests";
     public static final String TABLE_LOJA = "itensloja";
     public static final String TABLE_BUYOK = "buyok";
-    private static final int DATABASE_VERSION = 21;
+    private static final int DATABASE_VERSION = 22;
     public static final String ID = "_id";
     public static final String ENUNC     = "enunc";
     public static final String ALTA = "alta";
@@ -223,6 +223,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.insert(TABLE_LOJA, null, values);
         values.clear();
+        values.put(DBHelper.IDITEMOK, contid);
+        values.put(DBHelper.COMPOK, 0);
+        db.insert(TABLE_BUYOK, null, values);
+        values.clear();
+        values.put(DBHelper.IMGITEM, "skin1");
+        values.put(DBHelper.VALORITEM, 150);
+        values.put(DBHelper.TIPOITEM, 2);
+
+        db.insert(TABLE_LOJA, null, values);
+        values.clear();
+        contid++;
         values.put(DBHelper.IDITEMOK, contid);
         values.put(DBHelper.COMPOK, 0);
         db.insert(TABLE_BUYOK, null, values);

@@ -21,21 +21,37 @@ public class DBAdapter {
     private String[] allColumnsOK = {DBHelper.IDCOMPOK, DBHelper.IDITEMOK, DBHelper.COMPOK};
     private String[] allColumns = { DBHelper.ID, DBHelper.ALTA, DBHelper.ENUNC,
             DBHelper.ALTB, DBHelper.ALTC, DBHelper.ALTD, DBHelper.ALTE, DBHelper.COINS, DBHelper.MATERIA, DBHelper.ALTOK};
-    public Cursor AcessarQuestao(int numquest){
+    public Cursor AcessarQuestao(){
         Cursor cursorquestao;
         banco = dbHelper.getReadableDatabase();
-        cursorquestao= banco.query(DBHelper.TABLE_NAME, allColumns, DBHelper.ID + " = " + numquest, null, null, null, null);
+        cursorquestao= banco.query(DBHelper.TABLE_NAME, allColumns, null, null,null, null, "RANDOM()", "1");
 
         cursorquestao.moveToFirst();
         return cursorquestao;
     }
-public Cursor ObterLoja(){
-    Cursor itensloja;
-    banco = dbHelper.getWritableDatabase();
-    itensloja=banco.query(DBHelper.TABLE_LOJA, allColumnsL, null, null, null, null, null);
-    itensloja.moveToFirst();
-    return itensloja;
-}
+    public Cursor AcessarQuestaoME(String materia){
+        Cursor cursorquestao;
+        banco = dbHelper.getReadableDatabase();
+        if(materia.equals("Random")){
+            cursorquestao= banco.query(DBHelper.TABLE_NAME, allColumns, null, null,null, null, "RANDOM()", "1");
+
+            cursorquestao.moveToFirst();
+        }else{
+            cursorquestao= banco.query(DBHelper.TABLE_NAME, allColumns, DBHelper.MATERIA + " like '" + materia + "'", null,null, null, "RANDOM()", "1");
+
+            cursorquestao.moveToFirst();
+        }
+
+
+        return cursorquestao;
+    }
+    public Cursor ObterLoja(){
+        Cursor itensloja;
+        banco = dbHelper.getWritableDatabase();
+        itensloja=banco.query(DBHelper.TABLE_LOJA, allColumnsL, null, null, null, null, null);
+        itensloja.moveToFirst();
+        return itensloja;
+    }
     public void setBuy(int itemid){
 
         banco = dbHelper.getWritableDatabase();
@@ -43,26 +59,36 @@ public Cursor ObterLoja(){
         banco.execSQL("update " + DBHelper.TABLE_BUYOK + " set " + DBHelper.COMPOK + " = 1 where " + DBHelper.IDITEMOK + "=" + itemid);
 
     }
-public boolean getBuy(int id){
-    Cursor checkBuy;
-    Boolean tfBuy=false;
-    banco=dbHelper.getWritableDatabase();
+    public int getType(int id){
+        Cursor checkname;
+        int tipoitem;
+        banco=dbHelper.getReadableDatabase();
 
-    checkBuy=banco.query(DBHelper.TABLE_BUYOK, allColumnsOK, DBHelper.IDITEMOK + "=" + id, null, null, null, null);
-    Log.d("Foo", "Cursor is:" + checkBuy);
-    if( checkBuy != null && checkBuy.moveToFirst() ){
-        if(checkBuy.getInt(checkBuy.getColumnIndex(DBHelper.COMPOK))==1){
-            tfBuy=true;
-        }else{
-            tfBuy=false;
-        }
-    }else{
-Log.w("app", "Cursor nulo");
+        checkname=banco.query(DBHelper.TABLE_LOJA, allColumnsL, DBHelper.IDITEM + "=" + id, null, null, null, null);
+        checkname.moveToFirst();
+        tipoitem=checkname.getInt(checkname.getColumnIndex(DBHelper.TIPOITEM));
+        return tipoitem;
     }
+    public boolean getBuy(int id){
+        Cursor checkBuy;
+        Boolean tfBuy=false;
+        banco=dbHelper.getWritableDatabase();
+
+        checkBuy=banco.query(DBHelper.TABLE_BUYOK, allColumnsOK, DBHelper.IDITEMOK + "=" + id, null, null, null, null);
+        Log.d("Foo", "Cursor is:" + checkBuy);
+        if( checkBuy != null && checkBuy.moveToFirst() ){
+            if(checkBuy.getInt(checkBuy.getColumnIndex(DBHelper.COMPOK))==1){
+                tfBuy=true;
+            }else{
+                tfBuy=false;
+            }
+        }else{
+            Log.w("app", "Cursor nulo");
+        }
 
 
-    return tfBuy;
-}
+        return tfBuy;
+    }
     public String getItemName(int id){
         Cursor checkname;
         String nomeitem;

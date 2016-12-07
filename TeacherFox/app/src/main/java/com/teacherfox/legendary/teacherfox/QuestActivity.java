@@ -1,13 +1,18 @@
 package com.teacherfox.legendary.teacherfox;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +37,33 @@ public class QuestActivity extends AppCompatActivity {
         dimdim.setText(String.valueOf(Avatar.money));
         texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
         level.setText(String.valueOf(Avatar.lvl));
-        String password="txt";
+        String mat=getIntent().getStringExtra("Matéria");
+        ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
 
+
+        hatav.setVisibility(View.VISIBLE);
+        RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
+        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum, "drawable", getPackageName());
+        avatah.setBackgroundResource(iconbg);
+        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        hatav.setImageResource(icon);
+        Resources r = getResources();
+        int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
+
+        int height =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][2], r.getDisplayMetrics());
+        int m1 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][5], r.getDisplayMetrics());
+
+        int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][6] , r.getDisplayMetrics());
+        RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
+        size.setMargins(m1, m2, 0, 0);
+        hatav.setLayoutParams(size);
         DBAdapter acesso = new DBAdapter(getBaseContext());
-        Random idquest=new Random();
-        int randomNum = idquest.nextInt((6 - 1) + 1) + 1;
-        Cursor obterquestao = acesso.AcessarQuestao(randomNum);
+
+
+
+            Cursor obterquestao=acesso.AcessarQuestaoME(mat);
+
+
 
         if( obterquestao != null && obterquestao.moveToFirst() ){
             quest.setEnunc(obterquestao.getString(obterquestao.getColumnIndex(DBHelper.ENUNC)));
@@ -48,8 +74,9 @@ public class QuestActivity extends AppCompatActivity {
             quest.setAlte(obterquestao.getString(obterquestao.getColumnIndex(DBHelper.ALTE)));
             quest.setAltok(obterquestao.getString(obterquestao.getColumnIndex(DBHelper.ALTOK)));
             quest.setCoins(obterquestao.getInt(obterquestao.getColumnIndex(DBHelper.COINS)));
-            obterquestao.close();
+            //obterquestao.close();
         }
+        Log.d("Foo", "Cursor is:" + obterquestao);
         TextView nunc=(TextView)findViewById(R.id.nunciado);
         TextView txt_alta=(TextView)findViewById(R.id.altea);
         TextView txt_altb=(TextView)findViewById(R.id.alteb);

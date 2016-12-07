@@ -16,7 +16,7 @@ public class Avatar {
     static int lvl;
     static int exp;
     static int hatnum;
-static boolean hattf=false;
+    static boolean hattf=false;
     static int skinum;
 
     static int[] levels={
@@ -25,7 +25,18 @@ static boolean hattf=false;
             20,
             40,
             60,
-            90
+            90,
+            120,
+            160,
+            200,
+            250,
+            300,
+            360,
+            420,
+            490,
+            560,
+            640,
+            720
     };
     static int[][] positions={
             {1,50,50,0,0,20,40}
@@ -37,15 +48,19 @@ static boolean hattf=false;
         SharedPreferences saveFile;
         saveFile = c.getSharedPreferences("save", Context.MODE_PRIVATE);
         SharedPreferences.Editor editSave = saveFile.edit();
-        if(id==0){
-            Avatar.hattf=false;
-            editSave.putBoolean("Roupatf", Avatar.hattf);
-        }else{
+        if(tipo==1){
             Avatar.hatnum=id;
-            Avatar.hattf=true;
+
             editSave.putInt("Roupa", Avatar.hatnum);
             editSave.putBoolean("Roupatf", Avatar.hattf);
+        }else{
+            Avatar.skinum=id;
+
+            editSave.putInt("Skin", Avatar.skinum);
+
         }
+
+
 
         editSave.apply();
 

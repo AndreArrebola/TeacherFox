@@ -16,13 +16,13 @@
         android:id="@+id/iLoja1"
 
         android:layout_below="@+id/textView2"
-        android:layout_toLeftOf="@+id/textView2"
-        android:layout_toStartOf="@+id/textView2">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp">
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@drawable/item1"
             android:layout_marginTop="5dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -64,29 +64,28 @@
         android:layout_height="130dp"
         android:background="@drawable/botaomd"
         android:onClick="setCloth"
-        android:id="@+id/relativeLayout2"
-
+        android:id="@+id/iLoja2"
         android:layout_alignTop="@+id/iLoja1"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="30dp">
 
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:background="@drawable/item1"
             android:layout_marginTop="5dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:id="@+id/imageView4" />
+            android:id="@+id/iLoja2p" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="35sp"
-            android:text="Usar"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/imageView4"
+            android:text="00"
+            android:id="@+id/iLoja2c"
+            android:layout_below="@+id/iLoja2p"
             android:layout_centerHorizontal="true" />
 
         <TextView
@@ -94,9 +93,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Usar"
-            android:id="@+id/textView5"
-            android:layout_below="@+id/imageView4"
+            android:id="@+id/iLoja2cok"
+            android:layout_below="@+id/iLoja2p"
             android:layout_centerHorizontal="true"
             android:visibility="invisible" />
     </RelativeLayout>
+
 </RelativeLayout>

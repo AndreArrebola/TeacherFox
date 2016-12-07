@@ -21,8 +21,13 @@ Boolean res=false;
         TextView txresultado = (TextView)findViewById(R.id.txRes);
         TextView txmoney = (TextView)findViewById(R.id.gotMoney);
         ImageView hatav = (ImageView)findViewById(R.id.hatavr);
+        RelativeLayout foxkin=(RelativeLayout)findViewById((R.id.foxfull));
+
         int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
         hatav.setImageResource(icon);
+        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum + "full", "drawable", getPackageName());
+        foxkin.setBackgroundResource(iconbg);
+
         Resources r = getResources();
         int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positionsr[0][1], r.getDisplayMetrics());
 
@@ -53,7 +58,7 @@ Boolean res=false;
     public boolean addExp(int x){
         Avatar.exp=Avatar.exp+x;
         boolean lvlup=false;
-        for(int cont=0;cont<=5;cont++){
+        for(int cont=0;cont<=15;cont++){
             if(Avatar.levels[cont]<=Avatar.exp){
                 Avatar.lvl=cont;
 

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Avatar.lvl= saveFile.getInt("Nivel", 0);
         Avatar.hatnum= saveFile.getInt("Roupa", 0);
         Avatar.hattf=saveFile.getBoolean("Roupatf", true);
+        Avatar.skinum=saveFile.getInt("Skin", 0);
         if(Avatar.nome.equals("undefined")){
             setContentView(R.layout.activity_main);
         }else{
@@ -74,8 +75,12 @@ public class MainActivity extends AppCompatActivity {
             editSave.putInt("Experiencia", Avatar.exp);
             editSave.putInt("Nivel", Avatar.lvl);
             editSave.putInt("Roupa", Avatar.hatnum);
+            editSave.putInt("Skin", Avatar.skinum);
             editSave.apply();
             ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
+            RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
+            int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum, "drawable", getPackageName());
+            avatah.setBackgroundResource(iconbg);
 
                 hatav.setVisibility(View.VISIBLE);
                 int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
@@ -120,10 +125,15 @@ nomeraposa.setText(Avatar.nome);
     }
     public void questao(View view){
         Intent novatela = new Intent(this, QuestActivity.class);
+        novatela.putExtra("Matéria","Random");
         startActivity(novatela);
     }
     public void irLoja(View v){
         Intent novatela = new Intent(this, Loja.class);
+        startActivity(novatela);
+    }
+    public void irEst(View v){
+        Intent novatela = new Intent(this, Modo_estudo.class);
         startActivity(novatela);
     }
 }

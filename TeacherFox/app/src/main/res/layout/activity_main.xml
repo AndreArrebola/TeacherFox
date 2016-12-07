@@ -45,7 +45,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
-        android:src="@drawable/rapo"
+        android:src="@drawable/skin0"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
