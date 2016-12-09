@@ -10,11 +10,10 @@
         android:layout_height="140dp"
         android:background="@drawable/botaomd"
         android:id="@+id/btn_jogorapido"
+        android:onClick="questao"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="questao"
-        >
+        android:layout_alignParentStart="true">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,9 +43,9 @@
         android:layout_height="140dp"
         android:background="@drawable/botaomd"
         android:id="@+id/btn_modoestudo"
-        android:layout_alignTop="@+id/btn_jogorapido"
-        android:layout_alignParentRight="true"
         android:onClick="irEst"
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
         <ImageView
             android:layout_width="wrap_content"
@@ -76,7 +75,8 @@
         android:layout_below="@+id/btn_jogorapido"
         android:layout_centerHorizontal="true"
         android:onClick="irLoja"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="25dp"
+        android:id="@+id/relativeLayout2">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

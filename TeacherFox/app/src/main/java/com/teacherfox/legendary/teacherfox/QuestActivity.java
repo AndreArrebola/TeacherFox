@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -39,7 +40,16 @@ public class QuestActivity extends AppCompatActivity {
         level.setText(String.valueOf(Avatar.lvl));
         String mat=getIntent().getStringExtra("Matéria");
         ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
+        ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+        final Intent novatelap = new Intent(this, perfil.class);
+        btnperf.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+
+                startActivity(novatelap);
+            }
+        });
 
         hatav.setVisibility(View.VISIBLE);
         RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);

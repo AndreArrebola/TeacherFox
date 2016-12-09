@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            >
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,13 +22,17 @@
         <activity
             android:name=".QuestActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Results"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Loja"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Modo_estudo"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Results"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Loja"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Modo_estudo"
+            android:screenOrientation="portrait" />
+        <activity android:name=".perfil"></activity>
     </application>
 
 </manifest>

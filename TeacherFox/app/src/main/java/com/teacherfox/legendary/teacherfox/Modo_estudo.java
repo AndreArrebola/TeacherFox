@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -52,6 +53,16 @@ public class Modo_estudo extends AppCompatActivity {
         RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
         size.setMargins(m1, m2, 0, 0);
         hatav.setLayoutParams(size);
+        ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+        final Intent novatelap = new Intent(this, perfil.class);
+        btnperf.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(novatelap);
+            }
+        });
     }
     @Override
     public void onResume() {
@@ -98,6 +109,21 @@ public class Modo_estudo extends AppCompatActivity {
         switch(v.getId()){
             case R.id.meport:
                 mat="Português";
+                break;
+            case R.id.megeo:
+                mat="Geografia";
+                break;
+            case R.id.mehist:
+                mat="História";
+                break;
+            case R.id.mebio:
+                mat="Biologia";
+                break;
+            case R.id.mefilo:
+                mat="Filosofia";
+                break;
+            case R.id.memat:
+                mat="Matemática";
                 break;
         }
 

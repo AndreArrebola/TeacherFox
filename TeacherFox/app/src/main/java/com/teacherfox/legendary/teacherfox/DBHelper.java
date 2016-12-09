@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "quests";
     public static final String TABLE_LOJA = "itensloja";
     public static final String TABLE_BUYOK = "buyok";
-    private static final int DATABASE_VERSION = 22;
+    private static final int DATABASE_VERSION = 24;
     public static final String ID = "_id";
     public static final String ENUNC     = "enunc";
     public static final String ALTA = "alta";
@@ -81,12 +81,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "A intensa interferência humana na região descrita " +
                 "provocou o surgimento de uma área desértica em " +
                 "decorrência da");
-        values.put(DBHelper.ALTA, "A erosão.");
-        values.put(DBHelper.ALTB, "B salinização .");
-        values.put(DBHelper.ALTC, "C laterização.");
-        values.put(DBHelper.ALTD, "D compactação.");
-        values.put(DBHelper.ALTE, "E sedimentação.");
-        values.put(DBHelper.ALTOK, "B salinização .");
+        values.put(DBHelper.ALTA, "A - erosão.");
+        values.put(DBHelper.ALTB, "B - salinização .");
+        values.put(DBHelper.ALTC, "C - laterização.");
+        values.put(DBHelper.ALTD, "D - compactação.");
+        values.put(DBHelper.ALTE, "E - sedimentação.");
+        values.put(DBHelper.ALTOK, "B - salinização .");
         values.put(DBHelper.MATERIA, "Geografia");
         values.put(DBHelper.COINS, 25);
         db.insert(TABLE_NAME, null, values );
@@ -101,12 +101,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "Apesar de questionar os conceitos da tradição, a dúvida " +
                 "radical da filosofia cartesiana tem caráter positivo por" +
                 "contibuir para o(a)");
-        values.put(DBHelper.ALTA, "A dissolução do saber científico.");
-        values.put(DBHelper.ALTB, "B recuperação dos antigos juízos.");
-        values.put(DBHelper.ALTC, "C exaltação do pensamento clássico.");
-        values.put(DBHelper.ALTD, "D surgimento do conhecimento inabalável .");
-        values.put(DBHelper.ALTE, "E fortalecimento dos preconceitos religiosos.");
-        values.put(DBHelper.ALTOK, "D surgimento do conhecimento inabalável .");
+        values.put(DBHelper.ALTA, "A - dissolução do saber científico.");
+        values.put(DBHelper.ALTB, "B - recuperação dos antigos juízos.");
+        values.put(DBHelper.ALTC, "C - exaltação do pensamento clássico.");
+        values.put(DBHelper.ALTD, "D - surgimento do conhecimento inabalável .");
+        values.put(DBHelper.ALTE, "E - fortalecimento dos preconceitos religiosos.");
+        values.put(DBHelper.ALTOK, "D - surgimento do conhecimento inabalável .");
         values.put(DBHelper.MATERIA, "Filosofia");
         values.put(DBHelper.COINS, 25);
         db.insert(TABLE_NAME, null, values );
@@ -126,12 +126,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "\n" +
                 "Uma resposta do Estado brasileiro à conjuntura " +
                 "econômica mencionada foi o(a)");
-        values.put(DBHelper.ALTA, "A atração de empresas estrangeiras.");
-        values.put(DBHelper.ALTB, "B reformulação do sistema fundiário.");
-        values.put(DBHelper.ALTC, "C incremento da mão de obra imigrante.");
-        values.put(DBHelper.ALTD, "D desenvolvimento de política industrial .");
-        values.put(DBHelper.ALTE, "E financiamento de pequenos agricultures.");
-        values.put(DBHelper.ALTOK, "D desenvolvimento de política industrial .");
+        values.put(DBHelper.ALTA, "A - atração de empresas estrangeiras.");
+        values.put(DBHelper.ALTB, "B - reformulação do sistema fundiário.");
+        values.put(DBHelper.ALTC, "C - incremento da mão de obra imigrante.");
+        values.put(DBHelper.ALTD, "D - desenvolvimento de política industrial .");
+        values.put(DBHelper.ALTE, "E - financiamento de pequenos agricultures.");
+        values.put(DBHelper.ALTOK, "D - desenvolvimento de política industrial .");
         values.put(DBHelper.MATERIA, "Português");
         values.put(DBHelper.COINS, 20);
         db.insert(TABLE_NAME, null, values );
@@ -154,12 +154,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "\n" +
                 "No trecho da canção, composta na década de 1960, " +
                 "retrata-se a insatisfação do trabalhador rural com");
-        values.put(DBHelper.ALTA, "A a distribuição desigual da produção .");
-        values.put(DBHelper.ALTB, "B os financiamentos feitos ao produtor rural.");
-        values.put(DBHelper.ALTC, "C a ausência de escolas técnicas no campo.");
-        values.put(DBHelper.ALTD, "D os empecilhos advindos das secas prolongadas.");
-        values.put(DBHelper.ALTE, "E a precariedade de insumos no trabalho do campo.");
-        values.put(DBHelper.ALTOK, "A a distribuição desigual da produção .");
+        values.put(DBHelper.ALTA, "A - a distribuição desigual da produção .");
+        values.put(DBHelper.ALTB, "B - os financiamentos feitos ao produtor rural.");
+        values.put(DBHelper.ALTC, "C - a ausência de escolas técnicas no campo.");
+        values.put(DBHelper.ALTD, "D - os empecilhos advindos das secas prolongadas.");
+        values.put(DBHelper.ALTE, "E - a precariedade de insumos no trabalho do campo.");
+        values.put(DBHelper.ALTOK, "A - a distribuição desigual da produção .");
         values.put(DBHelper.MATERIA, "Português");
         values.put(DBHelper.COINS, 15);
         db.insert(TABLE_NAME, null, values );
@@ -179,12 +179,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "\n" +
                 "A situação descrita é um exemplo de como os costumes " +
                 "resultam da");
-        values.put(DBHelper.ALTA, "A assimilação de valores de povos exóticos.");
-        values.put(DBHelper.ALTB, "B experimentação de hábitos sociais variados.");
-        values.put(DBHelper.ALTC, "C recuperação de heranças da Antiguidade Clássica.");
-        values.put(DBHelper.ALTD, "D fusão de elementos de tradições culturais diferentes .");
-        values.put(DBHelper.ALTE, "E valorização de comportamento de grupos privilegiados");
-        values.put(DBHelper.ALTOK, "D fusão de elementos de tradições culturais diferentes .");
+        values.put(DBHelper.ALTA, "A - assimilação de valores de povos exóticos.");
+        values.put(DBHelper.ALTB, "B - experimentação de hábitos sociais variados.");
+        values.put(DBHelper.ALTC, "C - recuperação de heranças da Antiguidade Clássica.");
+        values.put(DBHelper.ALTD, "D - fusão de elementos de tradições culturais diferentes .");
+        values.put(DBHelper.ALTE, "E - valorização de comportamento de grupos privilegiados");
+        values.put(DBHelper.ALTOK, "D - fusão de elementos de tradições culturais diferentes .");
         values.put(DBHelper.MATERIA, "História");
         values.put(DBHelper.COINS, 20);
         db.insert(TABLE_NAME, null, values );
@@ -203,14 +203,109 @@ public class DBHelper extends SQLiteOpenHelper {
                 "uma universidade espanhola.\n" +
                 "\n" +
                 "A situação ilustra uma crise econômica que implica");
-        values.put(DBHelper.ALTA, "A valorização do trabalho fabril.");
-        values.put(DBHelper.ALTB, "B expansão dos mercados tecnológicos.");
-        values.put(DBHelper.ALTC, "C expansão dos recursos tecnológicos .");
-        values.put(DBHelper.ALTD, "D diversificação dos mercados produtivos.");
-        values.put(DBHelper.ALTE, "E intensificação dos intercâmbios estudantis.");
-        values.put(DBHelper.ALTOK, "C expansão dos recursos tecnológicos .");
+        values.put(DBHelper.ALTA, "A - valorização do trabalho fabril.");
+        values.put(DBHelper.ALTB, "B - expansão dos mercados tecnológicos.");
+        values.put(DBHelper.ALTC, "C - expansão dos recursos tecnológicos .");
+        values.put(DBHelper.ALTD, "D - diversificação dos mercados produtivos.");
+        values.put(DBHelper.ALTE, "E - intensificação dos intercâmbios estudantis.");
+        values.put(DBHelper.ALTOK, "C - expansão dos recursos tecnológicos .");
         values.put(DBHelper.MATERIA, "Geografia");
         values.put(DBHelper.COINS, 25);
+        db.insert(TABLE_NAME, null, values );
+        /*
+        values.put(DBHelper.ENUNC, "  Podemos apontar como uma das " +
+                        "principais causas da Revolução Francesa: " +
+                 "");
+                values.put(DBHelper.ALTA, "A - As guerras de conquistas promovidas e comandadas por Napoleão Bonaparte..");
+        values.put(DBHelper.ALTB, "B - A grande influência da burguesia e dos trabalhadores urbanos no sistema político da França..");
+        values.put(DBHelper.ALTC, "C - As fraudes eleitorais que existiam na França durante as eleições para monarca e ministros..");
+        values.put(DBHelper.ALTD, "D - A revolta de grande parte da população francesa (burguesia, camponeses e trabalhadores urbanos) gerada pelas injustiças sociais promovidas pela monarquia absolutista.");
+        values.put(DBHelper.ALTE, "");
+        values.put(DBHelper.ALTOK, "D - A revolta de grande parte da população francesa (burguesia, camponeses e trabalhadores urbanos) gerada pelas injustiças sociais promovidas pela monarquia absolutista.");
+        values.put(DBHelper.MATERIA, "Historia");
+        values.put(DBHelper.COINS, 20);
+        db.insert(TABLE_NAME, null, values );
+
+
+        values.put(DBHelper.ENUNC, "  Durante o processo revolucionário quem " +
+                        "eram os girondinos e o que defendiam?: \n" + "");
+                values.put(DBHelper.ALTA, "A - Eram representantes da monarquia que queriam reestabelecer o regime monárquico na França.");
+        values.put(DBHelper.ALTB, "B - Era um grupo político que representava a alta burguesia e queria evitar uma participação maior dos trabalhadores urbanos e rurais na política.");
+        values.put(DBHelper.ALTC, "C - Eram representantes da baixa burguesia e defendiam uma maior participação popular no governo.");
+        values.put(DBHelper.ALTD, "D - Eram integrantes do clero e defendiam maior participação da Igreja na política francesa.");
+        values.put(DBHelper.ALTE, "");
+                values.put(DBHelper.ALTOK, "B - Era um grupo político que representava a alta burguesia e queria evitar uma participação maior dos trabalhadores urbanos e rurais na política.");
+        values.put(DBHelper.MATERIA, "História");
+        values.put(DBHelper.COINS, 20);
+        db.insert(TABLE_NAME, null, values );*/
+
+        values.put(DBHelper.ENUNC, "  Qual era o lema dos revolucionários francesa, que resumia muito " +
+                        "bem os anseios do Terceiro Estado?  \n" + "");
+                values.put(DBHelper.ALTA, "A - Liberdade, Paz e Justiça.");
+        values.put(DBHelper.ALTB, "B - Paz, Pão e Terra.");
+        values.put(DBHelper.ALTC, "C - Liberdade, Igualdade e Fraternidade");
+        values.put(DBHelper.ALTD, "D - Liberdade ainda que tardia.");
+        values.put(DBHelper.ALTE, "");
+        values.put(DBHelper.ALTOK, "B - Paz, Pão e Terra.");
+        values.put(DBHelper.MATERIA, "História");
+        values.put(DBHelper.COINS, 20);
+        db.insert(TABLE_NAME, null, values );
+
+
+
+
+        values.put(DBHelper.ENUNC, " Assinale um dos eventos abaixo enumerados que não possui" +
+                        "possui relação direta com o processo de globalização \n" + "");
+                values.put(DBHelper.ALTA, "A - A difusão dos comércios localizados em oposição às corporações internacionais.");
+        values.put(DBHelper.ALTB, "B- A formação de blocos econômicos regionais.");
+                values.put(DBHelper.ALTC, "C - A propagação do inglês como idioma universal.");
+        values.put(DBHelper.ALTD, "D - O 'encolhimento' do mundo graças à redução das dificuldades de comunicação e transporte entre as diferentes regiões do planeta.");
+        values.put(DBHelper.ALTE, "");
+        values.put(DBHelper.ALTOK, "A - A difusão dos comércios localizados em oposição às corporações internacionais.");
+        values.put(DBHelper.MATERIA, "Geografia");
+        values.put(DBHelper.COINS, 20);
+        db.insert(TABLE_NAME, null, values );
+
+
+
+
+
+
+
+
+
+        values.put(DBHelper.ENUNC, "Assinale a alternativa em que o nome científico da ararinha-azul" +
+                "encontra-se de acordo com as regras de nomenclatura binomial: \n" + "");
+                values.put(DBHelper.ALTA, "A - Cyanoptta Spixii.");
+        values.put(DBHelper.ALTB, "B - Cyanopsitta spixii.");
+        values.put(DBHelper.ALTC, "C - syanopsitta spixii.");
+        values.put(DBHelper.ALTD, "D - sianopita spixii");
+        values.put(DBHelper.ALTE, "");
+        values.put(DBHelper.ALTOK, "B - Cyanopsitta spixii.");
+        values.put(DBHelper.MATERIA, "Biologia");
+        values.put(DBHelper.COINS, 20);
+        db.insert(TABLE_NAME, null, values );
+
+
+
+
+
+
+
+
+
+
+        values.put(DBHelper.ENUNC, " O cão doméstico (Canis familiaris), o lobo (Canis lupus) e o coiote" +
+                        "(Canis latrans) pertencem a uma mesma categoria taxonômica " +
+                        "Esses animais fazem parte de um(a) mesmo(a):");
+                values.put(DBHelper.ALTA, "A - gênero.");
+        values.put(DBHelper.ALTB, "B- espécie");
+        values.put(DBHelper.ALTC, "C - subespécie");
+        values.put(DBHelper.ALTD, "D -  raça");
+        values.put(DBHelper.ALTE, "");
+        values.put(DBHelper.ALTOK, "A - gênero.");
+        values.put(DBHelper.MATERIA, "Biologia");
+        values.put(DBHelper.COINS, 20);
         db.insert(TABLE_NAME, null, values );
         values.clear();
         db.execSQL(CRIAR_LOJA);

@@ -4,25 +4,16 @@ import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class Results extends AppCompatActivity {
-Boolean res=false;
-    int premio=0;
-    int expnum;
+public class perfil extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.resultscreen);
-        res=getIntent().getBooleanExtra("resultado", false);
-        premio=getIntent().getIntExtra("coins", 0);
-        TextView txresultado = (TextView)findViewById(R.id.txRes);
-        TextView txmoney = (TextView)findViewById(R.id.gotMoney);
-        TextView txexp = (TextView)findViewById(R.id.gotExp);
-        TextView txlvl = (TextView)findViewById(R.id.txlvl);
+        setContentView(R.layout.perfil);
         ImageView hatav = (ImageView)findViewById(R.id.hatavr);
         RelativeLayout foxkin=(RelativeLayout)findViewById((R.id.foxfull));
 
@@ -41,40 +32,12 @@ Boolean res=false;
         RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
         size.setMargins(m1, m2, 0, 0);
         hatav.setLayoutParams(size);
-        if(res){
-            txresultado.setText("Acertou!");
-            txmoney.setText("+" + premio + "$");
-            txexp.setText("+10xp");
-            Avatar.money=Avatar.money+premio;
-            boolean lup = addExp(10);
-            if(lup){
-                txlvl.setText( String.valueOf(Avatar.lvl));
-            }
+        TextView dimdim = (TextView)findViewById(R.id.ptxm);
 
-        }else{
-            txresultado.setText("Errou");
-            txexp.setText("+5xp");
-            boolean lup = addExp(5);
-            if(lup){
-                txlvl.setText(String.valueOf(Avatar.lvl));
-            }
-        }
-    }
-
-    public void returnToMenu(View view){
-        finish();
-    }
-    public boolean addExp(int x){
-        Avatar.exp=Avatar.exp+x;
-        boolean lvlup=false;
-        for(int cont=0;cont<=15;cont++){
-            if(Avatar.levels[cont]<=Avatar.exp){
-                Avatar.lvl=cont;
-
-                lvlup=true;
-            }
-        }
-        return lvlup;
-
+        TextView level = (TextView)findViewById(R.id.ptxn);
+        TextView texp = (TextView)findViewById(R.id.ptxe);
+        dimdim.setText(String.valueOf(Avatar.money));
+        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
+        level.setText(String.valueOf(Avatar.lvl));
     }
 }

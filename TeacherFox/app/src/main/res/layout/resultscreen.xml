@@ -25,8 +25,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="+00$"
         android:id="@+id/gotMoney"
-        android:layout_above="@+id/relativeLayout3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/gotExp"
+        android:layout_toRightOf="@+id/relativeLayout3"
+        android:layout_toEndOf="@+id/relativeLayout3" />
 
     <RelativeLayout
         android:layout_width="250dp"
@@ -63,5 +64,26 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="+00$"
+        android:id="@+id/gotExp"
+        android:layout_above="@+id/relativeLayout3"
+        android:layout_toLeftOf="@+id/txRes"
+        android:layout_toStartOf="@+id/txRes" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txlvl"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/gotMoney"
+        android:layout_alignBottom="@+id/gotMoney"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

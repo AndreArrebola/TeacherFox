@@ -42,14 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
             nomeraposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
-            /* ImageButton btnloja=(ImageButton)barra.findViewById(R.id.imageButton);
-            btnloja.setOnClickListener(new View.OnClickListener() {
+             ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+            final Intent novatelap = new Intent(this, perfil.class);
+            btnperf.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    irLoja();
+
+                    startActivity(novatelap);
                 }
-            });*/
+            });
         }
 
 

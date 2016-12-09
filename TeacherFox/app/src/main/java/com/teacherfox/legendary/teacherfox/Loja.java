@@ -1,6 +1,7 @@
 package com.teacherfox.legendary.teacherfox;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -56,7 +58,16 @@ public class Loja extends AppCompatActivity {
         RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
         size.setMargins(m1, m2, 0, 0);
         hatav.setLayoutParams(size);
+        ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+        final Intent novatelap = new Intent(this, perfil.class);
+        btnperf.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+
+                startActivity(novatelap);
+            }
+        });
         if(dba.getBuy(1)==false){
             tf="false";
         }else

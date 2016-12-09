@@ -36,11 +36,107 @@ android:onClick="QuestaoME"
             android:textStyle="bold"
             android:textColor="@color/abc_primary_text_disable_only_material_light"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginStart="20dp"
-            android:id="@+id/altea" />
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/botaomd"
+        android:onClick="QuestaoME"
+        android:id="@+id/megeo"
+        android:layout_below="@+id/meport"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geografia"
+            android:alpha="0.8"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/botaomd"
+        android:onClick="QuestaoME"
+        android:id="@+id/mehist"
+        android:layout_below="@+id/megeo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="História"
+            android:alpha="0.8"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/botaomd"
+        android:onClick="QuestaoME"
+        android:id="@+id/mebio"
+        android:layout_below="@+id/mehist"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Biologia"
+            android:alpha="0.8"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/botaomd"
+        android:onClick="QuestaoME"
+        android:id="@+id/mefilo"
+        android:layout_below="@+id/mebio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filosofia"
+            android:alpha="0.8"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/botaomd"
+
+        android:id="@+id/memat"
+        android:layout_below="@+id/mefilo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matemática"
+            android:alpha="0.8"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </RelativeLayout>
