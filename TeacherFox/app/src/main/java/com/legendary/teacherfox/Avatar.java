@@ -1,4 +1,4 @@
-package com.teacherfox.legendary.teacherfox;
+package com.legendary.teacherfox;
 
 import android.content.Context;
 import android.content.SharedPreferences;

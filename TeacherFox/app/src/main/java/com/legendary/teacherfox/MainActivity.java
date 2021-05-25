@@ -1,14 +1,11 @@
-package com.teacherfox.legendary.teacherfox;
+package com.legendary.teacherfox;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
@@ -43,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
             nomeraposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
              ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
-            final Intent novatelap = new Intent(this, perfil.class);
+            //final Intent novatelap = new Intent(this, perfil.class);
             btnperf.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
 
-                    startActivity(novatelap);
+                    //startActivity(novatelap);
                 }
             });
         }
@@ -125,6 +122,7 @@ nomeraposa.setText(Avatar.nome);
 
 
     }
+    /*
     public void questao(View view){
         Intent novatela = new Intent(this, QuestActivity.class);
         novatela.putExtra("Matéria","Random");
@@ -137,5 +135,5 @@ nomeraposa.setText(Avatar.nome);
     public void irEst(View v){
         Intent novatela = new Intent(this, Modo_estudo.class);
         startActivity(novatela);
-    }
+    }*/
 }
