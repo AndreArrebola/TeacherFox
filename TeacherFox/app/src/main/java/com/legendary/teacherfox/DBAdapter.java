@@ -1,4 +1,4 @@
-package com.teacherfox.legendary.teacherfox;
+package com.legendary.teacherfox;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.legendary.teacherfox.DBHelper;
 
 /**
  * Created by andre on 11/09/16.

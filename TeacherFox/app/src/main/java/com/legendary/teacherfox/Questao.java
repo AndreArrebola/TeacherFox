@@ -1,4 +1,4 @@
-package com.teacherfox.legendary.teacherfox;
+package com.legendary.teacherfox;
 
 /**
  * Created by andre on 11/09/16.

@@ -1,7 +1,7 @@
-package com.teacherfox.legendary.teacherfox;
+package com.legendary.teacherfox;
 
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.widget.ImageView;
@@ -17,7 +17,7 @@ public class perfil extends AppCompatActivity {
         ImageView hatav = (ImageView)findViewById(R.id.hatavr);
         RelativeLayout foxkin=(RelativeLayout)findViewById((R.id.foxfull));
 
-        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        /*int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
         hatav.setImageResource(icon);
         int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum + "full", "drawable", getPackageName());
         foxkin.setBackgroundResource(iconbg);
@@ -31,7 +31,7 @@ public class perfil extends AppCompatActivity {
         int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positionsr[0][6] , r.getDisplayMetrics());
         RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
         size.setMargins(m1, m2, 0, 0);
-        hatav.setLayoutParams(size);
+        hatav.setLayoutParams(size);*/
         TextView dimdim = (TextView)findViewById(R.id.ptxm);
 
         TextView level = (TextView)findViewById(R.id.ptxn);

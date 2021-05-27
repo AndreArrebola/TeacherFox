@@ -1,14 +1,11 @@
-package com.teacherfox.legendary.teacherfox;
+package com.legendary.teacherfox;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
@@ -125,6 +122,7 @@ nomeraposa.setText(Avatar.nome);
 
 
     }
+
     public void questao(View view){
         Intent novatela = new Intent(this, QuestActivity.class);
         novatela.putExtra("Matéria","Random");

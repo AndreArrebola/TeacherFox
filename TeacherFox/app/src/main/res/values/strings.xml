@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Teacher Fox</string>
+    <string name="app_name">TeacherFox</string>
     <string name="welcome">Bem vindo ao Teacher Fox!</string>
     <string name="jogorapido">Jogo Rápido</string>
     <string name="estudar">Estudar</string>
