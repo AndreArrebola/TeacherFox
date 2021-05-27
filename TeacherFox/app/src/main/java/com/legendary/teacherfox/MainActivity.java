@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
             nomeraposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
              ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
-            //final Intent novatelap = new Intent(this, perfil.class);
+            final Intent novatelap = new Intent(this, perfil.class);
             btnperf.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
 
-                    //startActivity(novatelap);
+                    startActivity(novatelap);
                 }
             });
         }
@@ -122,7 +122,7 @@ nomeraposa.setText(Avatar.nome);
 
 
     }
-    /*
+
     public void questao(View view){
         Intent novatela = new Intent(this, QuestActivity.class);
         novatela.putExtra("Matéria","Random");
@@ -135,5 +135,5 @@ nomeraposa.setText(Avatar.nome);
     public void irEst(View v){
         Intent novatela = new Intent(this, Modo_estudo.class);
         startActivity(novatela);
-    }*/
+    }
 }
