@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Avatar.hattf=saveFile.getBoolean("Roupatf", true);
         Avatar.skinum=saveFile.getInt("Skin", 0);
         if(Avatar.nome.equals("undefined")){
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.novouser);
         }else{
             setContentView(R.layout.mainmenu);
             LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             TextView level = (TextView)barra.findViewById(R.id.txLvl);
             TextView texp = (TextView)barra.findViewById(R.id.txExp);
-        dimdim.setText(String.valueOf(Avatar.money));
+        dimdim.setText("$" + String.valueOf(Avatar.money));
             texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
             level.setText(String.valueOf(Avatar.lvl));
             SharedPreferences.Editor editSave = saveFile.edit();
@@ -108,7 +108,7 @@ Avatar.nome=avatar.getText().toString();
         editSave.putString("Nome raposa", Avatar.nome);
         Avatar.money=0;
         Avatar.exp=0;
-                Avatar.money=0;
+
         editSave.putInt("Dinheiro", Avatar.money);
         editSave.apply();
         setContentView(R.layout.mainmenu);
@@ -119,6 +119,16 @@ Avatar.nome=avatar.getText().toString();
 nomeraposa.setText(Avatar.nome);
         TextView txmoney = (TextView)barra.findViewById(R.id.txMoney);
         Toast.makeText(getApplicationContext(),Avatar.nome , Toast.LENGTH_SHORT).show();
+        ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+        final Intent novatelap = new Intent(this, perfil.class);
+        btnperf.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(novatelap);
+            }
+        });
 
 
     }

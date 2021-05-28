@@ -35,7 +35,7 @@ public class QuestActivity extends AppCompatActivity {
         TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
         TextView level = (TextView)barra.findViewById(R.id.txLvl);
         TextView texp = (TextView)barra.findViewById(R.id.txExp);
-        dimdim.setText(String.valueOf(Avatar.money));
+        dimdim.setText("$"+ String.valueOf(Avatar.money));
         texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
         level.setText(String.valueOf(Avatar.lvl));
         String mat=getIntent().getStringExtra("Matéria");
@@ -108,35 +108,35 @@ public class QuestActivity extends AppCompatActivity {
             case R.id.baltea:
 
                 if(quest.getAlta().equals(quest.getAltok())){
-                    Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
                     cert=true;
                 }
                 break;
             case R.id.balteb:
 
                 if(quest.getAltb().equals(quest.getAltok())){
-                    Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
                     cert=true;
                 }
                 break;
             case R.id.baltec:
 
                 if(quest.getAltc().equals(quest.getAltok())){
-                    Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
                     cert=true;
                 }
                 break;
             case R.id.balted:
 
                 if(quest.getAltd().equals(quest.getAltok())){
-                    Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
                     cert=true;
                 }
                 break;
             case R.id.baltee:
 
                 if(quest.getAlte().equals(quest.getAltok())){
-                    Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"Acertou!", Toast.LENGTH_SHORT).show();
                     cert=true;
                 }
                 break;
