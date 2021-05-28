@@ -17,7 +17,7 @@ public class perfil extends AppCompatActivity {
         ImageView hatav = (ImageView)findViewById(R.id.hatavr);
         RelativeLayout foxkin=(RelativeLayout)findViewById((R.id.foxfull));
 
-        /*int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
         hatav.setImageResource(icon);
         int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum + "full", "drawable", getPackageName());
         foxkin.setBackgroundResource(iconbg);
@@ -31,9 +31,9 @@ public class perfil extends AppCompatActivity {
         int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positionsr[0][6] , r.getDisplayMetrics());
         RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
         size.setMargins(m1, m2, 0, 0);
-        hatav.setLayoutParams(size);*/
+        hatav.setLayoutParams(size);
         TextView dimdim = (TextView)findViewById(R.id.ptxm);
-
+        TextView nick = (TextView)findViewById(R.id.txNick);
         TextView level = (TextView)findViewById(R.id.ptxn);
         TextView texp = (TextView)findViewById(R.id.ptxe);
         dimdim.setText(String.valueOf(Avatar.money));

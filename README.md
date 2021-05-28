@@ -1,4 +1,4 @@
-# TeacherFox
+![TeacherFox](https://i.imgur.com/AsrxKvB.png)
 
 O Teacher Fox é um aplicativo de perguntas e respostas com gamificação, feito como TCC para o curso de Informática da ETEC Sapopemba. Iniciado em um GitHub feito para o nosso grupo(LegendaryCorp), foi transferido para que eu pudesse dar continuidade, como um dos maiores colaboradores do projeto original.
 

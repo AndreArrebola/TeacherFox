@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Raposa"
-        android:id="@+id/txRes"
+        android:id="@+id/txNick"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
 
@@ -21,18 +21,18 @@
         android:layout_marginBottom="137dp" />
 
     <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="300dp"
-
-        android:background="@drawable/rapo"
-        android:layout_above="@+id/txRes"
-        android:layout_centerHorizontal="true">
+        android:id="@+id/foxfull"
+        android:layout_width="309dp"
+        android:layout_height="403dp"
+        android:layout_above="@+id/txNick"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rapo">
         <!--android:background="@drawable/skin0full"-->
         <ImageView
+            android:id="@+id/hatavr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:id="@+id/hatavr" />
+            android:visibility="visible" />
     </RelativeLayout>
 
     <TextView
@@ -44,8 +44,8 @@
         android:textStyle="bold"
         android:textSize="30sp"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/txRes"
-        android:layout_toStartOf="@+id/txRes"
+        android:layout_toLeftOf="@+id/txNick"
+        android:layout_toStartOf="@+id/txNick"
         android:layout_marginBottom="56dp" />
 
     <TextView
@@ -100,7 +100,7 @@
         android:textSize="30sp"
         android:layout_alignBaseline="@+id/ptxe"
         android:layout_alignBottom="@+id/ptxe"
-        android:layout_toRightOf="@+id/txRes"
-        android:layout_toEndOf="@+id/txRes" />
+        android:layout_toRightOf="@+id/txNick"
+        android:layout_toEndOf="@+id/txNick" />
 
 </RelativeLayout>
