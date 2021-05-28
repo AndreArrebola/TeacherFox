@@ -33,24 +33,23 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:textSize="30dp"
-        android:text="Começar!"
-
-        android:onClick="msgteste"
-        android:background="@drawable/botaoorgmd"
         android:layout_alignParentBottom="true"
+
         android:layout_centerHorizontal="true"
-        android:id="@+id/button2" />
+        android:background="@drawable/botaoorgmd"
+        android:onClick="msgteste"
+        android:text="Começar!"
+        android:textSize="30dp" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
         android:id="@+id/imageView3"
-        android:src="@drawable/foxx"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="346dp"
+        android:layout_height="715dp"
+
+        android:src="@drawable/rapha" />
 
     <EditText
         android:layout_width="200dp"
