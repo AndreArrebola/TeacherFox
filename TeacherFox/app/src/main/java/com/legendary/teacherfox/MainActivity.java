@@ -14,9 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.legendary.teacherfox.databinding.MainmenuBinding;
 
 public class MainActivity extends AppCompatActivity {
     SharedPreferences saveFile;
+    private MainmenuBinding tela;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +32,21 @@ public class MainActivity extends AppCompatActivity {
         Avatar.hatnum= saveFile.getInt("Roupa", 0);
         Avatar.hattf=saveFile.getBoolean("Roupatf", true);
         Avatar.skinum=saveFile.getInt("Skin", 0);
+
         if(Avatar.nome.equals("undefined")){
+
             setContentView(R.layout.novouser);
         }else{
-            setContentView(R.layout.mainmenu);
+            tela = MainmenuBinding.inflate(getLayoutInflater());
+            //setContentView(R.layout.mainmenu);
+            setContentView(tela.getRoot());
+
             LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
             TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
 
             nomeraposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
-             ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+            ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
             final Intent novatelap = new Intent(this, perfil.class);
             btnperf.setOnClickListener(new View.OnClickListener() {
 
