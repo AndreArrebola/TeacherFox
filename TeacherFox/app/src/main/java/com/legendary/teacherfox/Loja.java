@@ -208,30 +208,25 @@ public class Loja extends AppCompatActivity {
         ImageView li2i=(ImageView)findViewById(R.id.iLoja2p);
         TextView li2ok=(TextView)findViewById(R.id.iLoja2cok);
         if(itens!=null && itens.moveToFirst()){
-            if(dba.getBuy(1)==false){
-                li1.setText(Integer.toString(itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
-
-            }else{
-                li1.setVisibility(View.INVISIBLE);
-                li1ok.setVisibility(View.VISIBLE);
-            }
-            int icon = getResources().getIdentifier("drawable/" + itens.getString(itens.getColumnIndex(DBHelper.IMGITEM)), "drawable", getPackageName());
-            li1i.setImageResource(icon);
+            criarBotaoItem(1, dba,  li1, li1ok, li1i );
 
         }
         if(itens!=null && itens.moveToNext()){
-            if(dba.getBuy(2)==false){
-                li2.setText(Integer.toString(itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
-
-            }else{
-                li2.setVisibility(View.INVISIBLE);
-                li2ok.setVisibility(View.VISIBLE);
-            }
-            int icon = getResources().getIdentifier("drawable/" + itens.getString(itens.getColumnIndex(DBHelper.IMGITEM)), "drawable", getPackageName());
-            li2i.setImageResource(icon);
+            criarBotaoItem(2, dba,  li2, li2ok, li2i );
 
         }
 
+    }
+    public void criarBotaoItem(int idItem, DBAdapter dba, TextView labelItem, TextView labelComprado, ImageView iconeItem){
+        if(!dba.getBuy(idItem)){
+            labelItem.setText(Integer.toString(itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
+
+        }else{
+            labelItem.setVisibility(View.INVISIBLE);
+            labelComprado.setVisibility(View.VISIBLE);
+        }
+        int icon = getResources().getIdentifier("drawable/" + itens.getString(itens.getColumnIndex(DBHelper.IMGITEM)), "drawable", getPackageName());
+        iconeItem.setImageResource(icon);
     }
 
 }

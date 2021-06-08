@@ -1,11 +1,11 @@
 package com.legendary.teacherfox;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
@@ -19,7 +19,6 @@ import com.legendary.teacherfox.databinding.BarraBinding;
 import com.legendary.teacherfox.databinding.MainmenuBinding;
 
 public class MainMenuActivity extends AppCompatActivity {
-    SharedPreferences saveFile;
     private MainmenuBinding tela;
 
     @Override
@@ -34,7 +33,7 @@ public class MainMenuActivity extends AppCompatActivity {
             //setContentView(R.layout.mainmenu);
             setContentView(tela.getRoot());
 
-            BarraBinding barra = tela.thebar;
+            BarraBinding barra =  tela.thebar;
             TextView nomeRaposa = barra.avtrname;
             nomeRaposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
@@ -112,7 +111,7 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent criarTelaLoja = new Intent(this, Loja.class);
         startActivity(criarTelaLoja);
     }
-    public void irEst(View v){
+    public void irEstudo(View v){
         Intent criarTelaEstudo = new Intent(this, Modo_estudo.class);
         startActivity(criarTelaEstudo);
     }

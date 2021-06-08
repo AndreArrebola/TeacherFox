@@ -44,7 +44,7 @@
         android:layout_height="140dp"
         android:background="@drawable/botaomd"
         android:id="@+id/btn_modoestudo"
-        android:onClick="irEst"
+        android:onClick="irEstudo"
         android:layout_above="@+id/relativeLayout2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
