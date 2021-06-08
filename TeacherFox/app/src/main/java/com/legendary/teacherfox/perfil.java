@@ -17,9 +17,9 @@ public class perfil extends AppCompatActivity {
         ImageView hatav = (ImageView)findViewById(R.id.hatavr);
         RelativeLayout foxkin=(RelativeLayout)findViewById((R.id.foxfull));
 
-        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
         hatav.setImageResource(icon);
-        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum + "full", "drawable", getPackageName());
+        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin + "full", "drawable", getPackageName());
         foxkin.setBackgroundResource(iconbg);
 
         Resources r = getResources();
@@ -37,7 +37,7 @@ public class perfil extends AppCompatActivity {
         TextView level = (TextView)findViewById(R.id.ptxn);
         TextView texp = (TextView)findViewById(R.id.ptxe);
         dimdim.setText(String.valueOf(Avatar.money));
-        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
-        level.setText(String.valueOf(Avatar.lvl));
+        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
+        level.setText(String.valueOf(Avatar.level));
     }
 }

@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
@@ -16,8 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Random;
 
 /**
  * Created by andre on 11/09/16.
@@ -36,8 +33,8 @@ public class QuestActivity extends AppCompatActivity {
         TextView level = (TextView)barra.findViewById(R.id.txLvl);
         TextView texp = (TextView)barra.findViewById(R.id.txExp);
         dimdim.setText("$"+ String.valueOf(Avatar.money));
-        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
-        level.setText(String.valueOf(Avatar.lvl));
+        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
+        level.setText(String.valueOf(Avatar.level));
         String mat=getIntent().getStringExtra("Matéria");
         ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
         ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
@@ -53,9 +50,9 @@ public class QuestActivity extends AppCompatActivity {
 
         hatav.setVisibility(View.VISIBLE);
         RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
-        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum, "drawable", getPackageName());
+        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin, "drawable", getPackageName());
         avatah.setBackgroundResource(iconbg);
-        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
         hatav.setImageResource(icon);
         Resources r = getResources();
         int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
@@ -68,12 +65,7 @@ public class QuestActivity extends AppCompatActivity {
         size.setMargins(m1, m2, 0, 0);
         hatav.setLayoutParams(size);
         DBAdapter acesso = new DBAdapter(getBaseContext());
-
-
-
-            Cursor obterquestao=acesso.AcessarQuestaoME(mat);
-
-
+        Cursor obterquestao=acesso.AcessarQuestaoME(mat);
 
         if( obterquestao != null && obterquestao.moveToFirst() ){
             quest.setEnunc(obterquestao.getString(obterquestao.getColumnIndex(DBHelper.ENUNC)));

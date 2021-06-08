@@ -14,11 +14,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.legendary.teacherfox.databinding.BarraBinding;
 import com.legendary.teacherfox.databinding.MainmenuBinding;
 
 public class MainActivity extends AppCompatActivity {
     SharedPreferences saveFile;
     private MainmenuBinding tela;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,34 +31,25 @@ public class MainActivity extends AppCompatActivity {
         Avatar.nome= saveFile.getString("Nome raposa", "undefined");
         Avatar.money= saveFile.getInt("Dinheiro", 0);
         Avatar.exp= saveFile.getInt("Experiencia", 0);
-        Avatar.lvl= saveFile.getInt("Nivel", 0);
-        Avatar.hatnum= saveFile.getInt("Roupa", 0);
+        Avatar.level = saveFile.getInt("Nivel", 0);
+        Avatar.idHat = saveFile.getInt("Roupa", 0);
         Avatar.hattf=saveFile.getBoolean("Roupatf", true);
-        Avatar.skinum=saveFile.getInt("Skin", 0);
+        Avatar.idSkin =saveFile.getInt("Skin", 0);
 
         if(Avatar.nome.equals("undefined")){
-
             setContentView(R.layout.novouser);
         }else{
             tela = MainmenuBinding.inflate(getLayoutInflater());
             //setContentView(R.layout.mainmenu);
             setContentView(tela.getRoot());
 
-            LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
-            TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
-
-            nomeraposa.setText(Avatar.nome);
+            BarraBinding barra = tela.thebar;
+            TextView nomeRaposa = barra.avtrname;
+            nomeRaposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
-            ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+            ImageButton botaoPerfil=barra.button;
             final Intent novatelap = new Intent(this, perfil.class);
-            btnperf.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-
-                    startActivity(novatelap);
-                }
-            });
+            botaoPerfil.setOnClickListener(v -> startActivity(novatelap));
         }
 
 
@@ -65,52 +59,44 @@ public class MainActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         Toast.makeText(getApplicationContext(),"Dados salvos" , Toast.LENGTH_SHORT).show();
-        if(Avatar.nome.equals("undefined")){
-
-        }else{
-        LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
-        TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
-
+        if(!Avatar.nome.equals("undefined")){
+            LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
+            TextView txDinheiro = (TextView)barra.findViewById(R.id.txMoney);
             TextView level = (TextView)barra.findViewById(R.id.txLvl);
             TextView texp = (TextView)barra.findViewById(R.id.txExp);
-        dimdim.setText("$" + String.valueOf(Avatar.money));
-            texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
-            level.setText(String.valueOf(Avatar.lvl));
+            txDinheiro.setText("$" + String.valueOf(Avatar.money));
+            texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
+            level.setText(String.valueOf(Avatar.level));
             SharedPreferences.Editor editSave = saveFile.edit();
             editSave.putInt("Dinheiro", Avatar.money);
             editSave.putInt("Experiencia", Avatar.exp);
-            editSave.putInt("Nivel", Avatar.lvl);
-            editSave.putInt("Roupa", Avatar.hatnum);
-            editSave.putInt("Skin", Avatar.skinum);
+            editSave.putInt("Nivel", Avatar.level);
+            editSave.putInt("Roupa", Avatar.idHat);
+            editSave.putInt("Skin", Avatar.idSkin);
             editSave.apply();
             ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
             RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
-            int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum, "drawable", getPackageName());
+            int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin, "drawable", getPackageName());
             avatah.setBackgroundResource(iconbg);
 
-                hatav.setVisibility(View.VISIBLE);
-                int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
-                hatav.setImageResource(icon);
-                Resources r = getResources();
-                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
-
-                int height =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][2], r.getDisplayMetrics());
-                int m1 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][5], r.getDisplayMetrics());
-
-                int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][6] , r.getDisplayMetrics());
-                RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
-                size.setMargins(m1, m2, 0, 0);
-                hatav.setLayoutParams(size);
-            
-
-
+            hatav.setVisibility(View.VISIBLE);
+            int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
+            hatav.setImageResource(icon);
+            Resources r = getResources();
+            int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
+            int height =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][2], r.getDisplayMetrics());
+            int m1 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][5], r.getDisplayMetrics());
+            int m2 =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][6] , r.getDisplayMetrics());
+            RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
+            size.setMargins(m1, m2, 0, 0);
+            hatav.setLayoutParams(size);
 
         }
 
     }
-    public void msgteste(View view){
+    public void criarUser(View view){
         TextView avatar = (TextView) findViewById (R.id.nomeRaposa);
-Avatar.nome=avatar.getText().toString();
+        Avatar.nome=avatar.getText().toString();
         SharedPreferences.Editor editSave = saveFile.edit();
         editSave.putString("Nome raposa", Avatar.nome);
         Avatar.money=0;
@@ -118,39 +104,33 @@ Avatar.nome=avatar.getText().toString();
 
         editSave.putInt("Dinheiro", Avatar.money);
         editSave.apply();
-        setContentView(R.layout.mainmenu);
+        tela = MainmenuBinding.inflate(getLayoutInflater());
+        setContentView(tela.getRoot());
         LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
 
         TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
 
-nomeraposa.setText(Avatar.nome);
+        nomeraposa.setText(Avatar.nome);
         TextView txmoney = (TextView)barra.findViewById(R.id.txMoney);
         Toast.makeText(getApplicationContext(),Avatar.nome , Toast.LENGTH_SHORT).show();
-        ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+        ImageButton botaoPerfil=(ImageButton)barra.findViewById(R.id.button);
         final Intent novatelap = new Intent(this, perfil.class);
-        btnperf.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                startActivity(novatelap);
-            }
-        });
+        botaoPerfil.setOnClickListener(v -> startActivity(novatelap));
 
 
     }
 
     public void questao(View view){
-        Intent novatela = new Intent(this, QuestActivity.class);
-        novatela.putExtra("Matéria","Random");
-        startActivity(novatela);
+        Intent criarTelaQuestao = new Intent(this, QuestActivity.class);
+        criarTelaQuestao.putExtra("Matéria","Random");
+        startActivity(criarTelaQuestao);
     }
     public void irLoja(View v){
-        Intent novatela = new Intent(this, Loja.class);
-        startActivity(novatela);
+        Intent criarTelaLoja = new Intent(this, Loja.class);
+        startActivity(criarTelaLoja);
     }
     public void irEst(View v){
-        Intent novatela = new Intent(this, Modo_estudo.class);
-        startActivity(novatela);
+        Intent criarTelaEstudo = new Intent(this, Modo_estudo.class);
+        startActivity(criarTelaEstudo);
     }
 }

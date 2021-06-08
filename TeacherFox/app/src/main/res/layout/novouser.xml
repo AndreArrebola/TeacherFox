@@ -40,7 +40,7 @@
 
         android:layout_centerHorizontal="true"
         android:background="@drawable/botaoorgmd"
-        android:onClick="msgteste"
+        android:onClick="criarUser"
         android:text="Começar!"
         android:textSize="30dp" />
 

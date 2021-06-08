@@ -31,17 +31,17 @@ public class Modo_estudo extends AppCompatActivity {
         TextView level = (TextView)barra.findViewById(R.id.txLvl);
         TextView texp = (TextView)barra.findViewById(R.id.txExp);
         dimdim.setText(String.valueOf(Avatar.money));
-        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
-        level.setText(String.valueOf(Avatar.lvl));
+        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
+        level.setText(String.valueOf(Avatar.level));
         String tf;
         ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
 
 
         hatav.setVisibility(View.VISIBLE);
         RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
-        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum, "drawable", getPackageName());
+        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin, "drawable", getPackageName());
         avatah.setBackgroundResource(iconbg);
-        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
         hatav.setImageResource(icon);
         Resources r = getResources();
         int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
@@ -77,18 +77,18 @@ public class Modo_estudo extends AppCompatActivity {
             TextView level = (TextView) barra.findViewById(R.id.txLvl);
             TextView texp = (TextView) barra.findViewById(R.id.txExp);
             dimdim.setText(String.valueOf(Avatar.money));
-            texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl + 1]);
-            level.setText(String.valueOf(Avatar.lvl));
+            texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level + 1]);
+            level.setText(String.valueOf(Avatar.level));
             SharedPreferences.Editor editSave = saveFile.edit();
             editSave.putInt("Dinheiro", Avatar.money);
             editSave.putInt("Experiencia", Avatar.exp);
-            editSave.putInt("Nivel", Avatar.lvl);
-            editSave.putInt("Roupa", Avatar.hatnum);
+            editSave.putInt("Nivel", Avatar.level);
+            editSave.putInt("Roupa", Avatar.idHat);
             editSave.apply();
             ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
 
             hatav.setVisibility(View.VISIBLE);
-            int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+            int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
             hatav.setImageResource(icon);
             Resources r = getResources();
             int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());

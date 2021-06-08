@@ -26,9 +26,9 @@ Boolean res=false;
         ImageView hatav = (ImageView)findViewById(R.id.hatavr);
         RelativeLayout foxkin=(RelativeLayout)findViewById((R.id.foxfull));
 
-        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
         hatav.setImageResource(icon);
-        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum + "full", "drawable", getPackageName());
+        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin + "full", "drawable", getPackageName());
         foxkin.setBackgroundResource(iconbg);
 
         Resources r = getResources();
@@ -48,7 +48,7 @@ Boolean res=false;
             Avatar.money=Avatar.money+premio;
             boolean lup = addExp(10);
             if(lup){
-                txlvl.setText( String.valueOf(Avatar.lvl));
+                txlvl.setText( String.valueOf(Avatar.level));
             }
 
         }else{
@@ -56,7 +56,7 @@ Boolean res=false;
             txexp.setText("+5xp");
             boolean lup = addExp(5);
             if(lup){
-                txlvl.setText(String.valueOf(Avatar.lvl));
+                txlvl.setText(String.valueOf(Avatar.level));
             }
         }
     }
@@ -69,7 +69,7 @@ Boolean res=false;
         boolean lvlup=false;
         for(int cont=0;cont<=15;cont++){
             if(Avatar.levels[cont]<=Avatar.exp){
-                Avatar.lvl=cont;
+                Avatar.level =cont;
 
                 lvlup=true;
             }

@@ -36,17 +36,17 @@ public class Loja extends AppCompatActivity {
         TextView level = (TextView)barra.findViewById(R.id.txLvl);
         TextView texp = (TextView)barra.findViewById(R.id.txExp);
         dimdim.setText(String.valueOf(Avatar.money));
-        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.lvl+1]);
-        level.setText(String.valueOf(Avatar.lvl));
+        texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
+        level.setText(String.valueOf(Avatar.level));
         String tf;
         ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
 
 
         hatav.setVisibility(View.VISIBLE);
         RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
-        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.skinum, "drawable", getPackageName());
+        int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin, "drawable", getPackageName());
         avatah.setBackgroundResource(iconbg);
-        int icon = getResources().getIdentifier("drawable/item" + Avatar.hatnum, "drawable", getPackageName());
+        int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
         hatav.setImageResource(icon);
         Resources r = getResources();
         int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, Avatar.positions[0][1], r.getDisplayMetrics());
@@ -107,7 +107,7 @@ public class Loja extends AppCompatActivity {
 
                 }else{
                     if(dba.getType(1)==1){
-                        if(Avatar.hatnum==1){
+                        if(Avatar.idHat ==1){
                             int icon = getResources().getIdentifier("drawable/item0", "drawable", getPackageName());
                             hatav.setImageResource(icon);
                             Avatar.saveCloth(this, 1, 0);
@@ -182,7 +182,7 @@ public class Loja extends AppCompatActivity {
                         hatav.setLayoutParams(size);
                         Avatar.saveCloth(this, 1, 2);
                     }else{
-                        if(Avatar.skinum==1){
+                        if(Avatar.idSkin ==1){
                             int icon = getResources().getIdentifier("drawable/skin0", "drawable", getPackageName());
                             avatah.setBackgroundResource(icon);
                             Avatar.saveCloth(this, 2, 0);

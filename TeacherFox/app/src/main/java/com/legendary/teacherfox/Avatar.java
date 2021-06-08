@@ -2,10 +2,6 @@ package com.legendary.teacherfox;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by andre on 12/10/16.
@@ -13,11 +9,11 @@ import android.widget.Toast;
 public class Avatar {
     static String nome;
     static int money;
-    static int lvl;
+    static int level;
     static int exp;
-    static int hatnum;
+    static int idHat;
     static boolean hattf=false;
-    static int skinum;
+    static int idSkin;
 
     static int[] levels={
             0,
@@ -49,14 +45,14 @@ public class Avatar {
         saveFile = c.getSharedPreferences("save", Context.MODE_PRIVATE);
         SharedPreferences.Editor editSave = saveFile.edit();
         if(tipo==1){
-            Avatar.hatnum=id;
+            Avatar.idHat = id;
 
-            editSave.putInt("Roupa", Avatar.hatnum);
+            editSave.putInt("Roupa", Avatar.idHat);
             editSave.putBoolean("Roupatf", Avatar.hattf);
         }else{
-            Avatar.skinum=id;
+            Avatar.idSkin = id;
 
-            editSave.putInt("Skin", Avatar.skinum);
+            editSave.putInt("Skin", Avatar.idSkin);
 
         }
 
