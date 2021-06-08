@@ -17,33 +17,42 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.legendary.teacherfox.databinding.ActivityLojaBinding;
+import com.legendary.teacherfox.databinding.BarraBinding;
+import com.legendary.teacherfox.databinding.QuestoesBinding;
+
 public class Loja extends AppCompatActivity {
+    private ActivityLojaBinding telaLoja;
     Cursor itens;
     SharedPreferences saveFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loja);
+        telaLoja = ActivityLojaBinding.inflate(getLayoutInflater());
+        setContentView(telaLoja.getRoot());
+        BarraBinding barra = telaLoja.thebar;
+        TextView nomeraposa = barra.avtrname;
+        nomeraposa.setText(Avatar.nome);
+
         mostrarItens();
         Context context=this;
         saveFile = context.getSharedPreferences("save", Context.MODE_PRIVATE);
-        LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
-        TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
-        nomeraposa.setText(Avatar.nome.toString());
+
+        nomeraposa.setText(Avatar.nome);
         DBAdapter dba=new DBAdapter(this);
-        TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
-        TextView level = (TextView)barra.findViewById(R.id.txLvl);
-        TextView texp = (TextView)barra.findViewById(R.id.txExp);
+        TextView dimdim = barra.txMoney;
+        TextView level = barra.txLvl;
+        TextView texp = barra.txExp;
         dimdim.setText(String.valueOf(Avatar.money));
         texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
         level.setText(String.valueOf(Avatar.level));
         String tf;
-        ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
+        ImageView hatav = barra.hatav;
 
 
         hatav.setVisibility(View.VISIBLE);
-        RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
+        RelativeLayout avatah=(RelativeLayout) barra.Avatar;
         int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin, "drawable", getPackageName());
         avatah.setBackgroundResource(iconbg);
         int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
@@ -58,10 +67,10 @@ public class Loja extends AppCompatActivity {
         RelativeLayout.LayoutParams size = new RelativeLayout.LayoutParams(width, height);
         size.setMargins(m1, m2, 0, 0);
         hatav.setLayoutParams(size);
-        ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+        ImageButton btnperf= barra.button;
         final Intent novatelap = new Intent(this, perfil.class);
         btnperf.setOnClickListener(v -> startActivity(novatelap));
-        if(dba.getBuy(1)==false){
+        if(!dba.getBuy(1)){
             tf="false";
         }else
         {

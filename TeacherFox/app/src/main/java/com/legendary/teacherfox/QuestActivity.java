@@ -16,33 +16,40 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.legendary.teacherfox.databinding.BarraBinding;
+import com.legendary.teacherfox.databinding.MainmenuBinding;
+import com.legendary.teacherfox.databinding.QuestoesBinding;
+
 /**
  * Created by andre on 11/09/16.
  */
 public class QuestActivity extends AppCompatActivity {
+    private QuestoesBinding telaQuestao;
     Questao quest = new Questao();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.questoes);
-        LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
-        TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
+        telaQuestao = QuestoesBinding.inflate(getLayoutInflater());
+        setContentView(telaQuestao.getRoot());
+        BarraBinding barra = telaQuestao.thebar;
+        TextView nomeraposa = barra.avtrname;
         nomeraposa.setText(Avatar.nome);
 
-        TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
-        TextView level = (TextView)barra.findViewById(R.id.txLvl);
-        TextView texp = (TextView)barra.findViewById(R.id.txExp);
-        dimdim.setText("$"+ String.valueOf(Avatar.money));
+        TextView dimdim = barra.txMoney;
+        TextView level = barra.txLvl;
+        TextView texp = barra.txExp;
+        dimdim.setText("$"+ Avatar.money);
         texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
         level.setText(String.valueOf(Avatar.level));
         String mat=getIntent().getStringExtra("Matéria");
-        ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
-        ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
+        ImageView hatav = barra.hatav;
+        ImageButton btnperf= barra.button;
         final Intent novatelap = new Intent(this, perfil.class);
         btnperf.setOnClickListener(v -> startActivity(novatelap));
 
         hatav.setVisibility(View.VISIBLE);
-        RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
+        RelativeLayout avatah= barra.Avatar;
         int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin, "drawable", getPackageName());
         avatah.setBackgroundResource(iconbg);
         int icon = getResources().getIdentifier("drawable/item" + Avatar.idHat, "drawable", getPackageName());
@@ -72,12 +79,12 @@ public class QuestActivity extends AppCompatActivity {
             //obterquestao.close();
         }
         Log.d("Foo", "Cursor is:" + obterquestao);
-        TextView nunc=(TextView)findViewById(R.id.nunciado);
-        TextView txt_alta=(TextView)findViewById(R.id.altea);
-        TextView txt_altb=(TextView)findViewById(R.id.alteb);
-        TextView txt_altc=(TextView)findViewById(R.id.altec);
-        TextView txt_altd=(TextView)findViewById(R.id.alted);
-        TextView txt_alte=(TextView)findViewById(R.id.altee);
+        TextView nunc     = telaQuestao.nunciado;
+        TextView txt_alta = telaQuestao.altea;
+        TextView txt_altb = telaQuestao.alteb;
+        TextView txt_altc = telaQuestao.altec;
+        TextView txt_altd = telaQuestao.alted;
+        TextView txt_alte = telaQuestao.altee;
         nunc.setText(quest.getEnunc());
         txt_alta.setText(quest.getAlta());
         txt_altb.setText(quest.getAltb());
