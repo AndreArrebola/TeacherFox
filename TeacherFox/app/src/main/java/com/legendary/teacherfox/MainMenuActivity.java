@@ -18,23 +18,14 @@ import android.widget.Toast;
 import com.legendary.teacherfox.databinding.BarraBinding;
 import com.legendary.teacherfox.databinding.MainmenuBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity {
     SharedPreferences saveFile;
     private MainmenuBinding tela;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Context context = this;
-        saveFile = context.getSharedPreferences("save",Context.MODE_PRIVATE);
-
-        Avatar.nome= saveFile.getString("Nome raposa", "undefined");
-        Avatar.money= saveFile.getInt("Dinheiro", 0);
-        Avatar.exp= saveFile.getInt("Experiencia", 0);
-        Avatar.level = saveFile.getInt("Nivel", 0);
-        Avatar.idHat = saveFile.getInt("Roupa", 0);
-        Avatar.hattf=saveFile.getBoolean("Roupatf", true);
-        Avatar.idSkin =saveFile.getInt("Skin", 0);
+        Avatar.loadCharacter(this);
 
         if(Avatar.nome.equals("undefined")){
             setContentView(R.layout.novouser);
@@ -47,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             TextView nomeRaposa = barra.avtrname;
             nomeRaposa.setText(Avatar.nome);
             Toast.makeText(getApplicationContext(),"Bem vindo, " + Avatar.nome , Toast.LENGTH_SHORT).show();
-            ImageButton botaoPerfil=barra.button;
+            ImageButton botaoPerfil = barra.button;
             final Intent novatelap = new Intent(this, perfil.class);
             botaoPerfil.setOnClickListener(v -> startActivity(novatelap));
         }
@@ -67,13 +58,8 @@ public class MainActivity extends AppCompatActivity {
             txDinheiro.setText("$" + String.valueOf(Avatar.money));
             texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
             level.setText(String.valueOf(Avatar.level));
-            SharedPreferences.Editor editSave = saveFile.edit();
-            editSave.putInt("Dinheiro", Avatar.money);
-            editSave.putInt("Experiencia", Avatar.exp);
-            editSave.putInt("Nivel", Avatar.level);
-            editSave.putInt("Roupa", Avatar.idHat);
-            editSave.putInt("Skin", Avatar.idSkin);
-            editSave.apply();
+            Avatar.saveCharacter();
+
             ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
             RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
             int iconbg = getResources().getIdentifier("drawable/skin" + Avatar.idSkin, "drawable", getPackageName());
@@ -97,13 +83,10 @@ public class MainActivity extends AppCompatActivity {
     public void criarUser(View view){
         TextView avatar = (TextView) findViewById (R.id.nomeRaposa);
         Avatar.nome=avatar.getText().toString();
-        SharedPreferences.Editor editSave = saveFile.edit();
-        editSave.putString("Nome raposa", Avatar.nome);
         Avatar.money=0;
         Avatar.exp=0;
 
-        editSave.putInt("Dinheiro", Avatar.money);
-        editSave.apply();
+
         tela = MainmenuBinding.inflate(getLayoutInflater());
         setContentView(tela.getRoot());
         LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
@@ -114,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
         TextView txmoney = (TextView)barra.findViewById(R.id.txMoney);
         Toast.makeText(getApplicationContext(),Avatar.nome , Toast.LENGTH_SHORT).show();
         ImageButton botaoPerfil=(ImageButton)barra.findViewById(R.id.button);
-        final Intent novatelap = new Intent(this, perfil.class);
-        botaoPerfil.setOnClickListener(v -> startActivity(novatelap));
+        final Intent novaTelaPerfil = new Intent(this, perfil.class);
+        botaoPerfil.setOnClickListener(v -> startActivity(novaTelaPerfil));
 
 
     }
 
-    public void questao(View view){
+    public void irQuestao(View view){
         Intent criarTelaQuestao = new Intent(this, QuestActivity.class);
         criarTelaQuestao.putExtra("Matéria","Random");
         startActivity(criarTelaQuestao);

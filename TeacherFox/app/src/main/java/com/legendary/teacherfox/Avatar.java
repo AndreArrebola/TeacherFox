@@ -15,6 +15,8 @@ public class Avatar {
     static boolean hattf=false;
     static int idSkin;
 
+    static SharedPreferences saveFile;
+
     static int[] levels={
             0,
             10,
@@ -56,10 +58,31 @@ public class Avatar {
 
         }
 
-
-
         editSave.apply();
 
+    }
+
+    public static void loadCharacter(Context context){
+        saveFile = context.getSharedPreferences("save",Context.MODE_PRIVATE);
+
+        Avatar.nome= saveFile.getString("Nome raposa", "undefined");
+        Avatar.money= saveFile.getInt("Dinheiro", 0);
+        Avatar.exp= saveFile.getInt("Experiencia", 0);
+        Avatar.level = saveFile.getInt("Nivel", 0);
+        Avatar.idHat = saveFile.getInt("Roupa", 0);
+        Avatar.hattf=saveFile.getBoolean("Roupatf", true);
+        Avatar.idSkin =saveFile.getInt("Skin", 0);
+
+
+    }
+    public static void saveCharacter(){
+        SharedPreferences.Editor editSave = saveFile.edit();
+        editSave.putInt("Dinheiro", Avatar.money);
+        editSave.putInt("Experiencia", Avatar.exp);
+        editSave.putInt("Nivel", Avatar.level);
+        editSave.putInt("Roupa", Avatar.idHat);
+        editSave.putInt("Skin", Avatar.idSkin);
+        editSave.apply();
     }
 
 

@@ -60,14 +60,7 @@ public class Loja extends AppCompatActivity {
         hatav.setLayoutParams(size);
         ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
         final Intent novatelap = new Intent(this, perfil.class);
-        btnperf.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                startActivity(novatelap);
-            }
-        });
+        btnperf.setOnClickListener(v -> startActivity(novatelap));
         if(dba.getBuy(1)==false){
             tf="false";
         }else

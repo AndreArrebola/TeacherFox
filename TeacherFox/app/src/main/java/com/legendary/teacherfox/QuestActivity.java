@@ -27,7 +27,7 @@ public class QuestActivity extends AppCompatActivity {
         setContentView(R.layout.questoes);
         LinearLayout barra = (LinearLayout)findViewById(R.id.thebar);
         TextView nomeraposa = (TextView)barra.findViewById(R.id.avtrname);
-        nomeraposa.setText(Avatar.nome.toString());
+        nomeraposa.setText(Avatar.nome);
 
         TextView dimdim = (TextView)barra.findViewById(R.id.txMoney);
         TextView level = (TextView)barra.findViewById(R.id.txLvl);
@@ -39,14 +39,7 @@ public class QuestActivity extends AppCompatActivity {
         ImageView hatav = (ImageView) barra.findViewById(R.id.hatav);
         ImageButton btnperf=(ImageButton)barra.findViewById(R.id.button);
         final Intent novatelap = new Intent(this, perfil.class);
-        btnperf.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                startActivity(novatelap);
-            }
-        });
+        btnperf.setOnClickListener(v -> startActivity(novatelap));
 
         hatav.setVisibility(View.VISIBLE);
         RelativeLayout avatah=(RelativeLayout) barra.findViewById(R.id.Avatar);
