@@ -54,8 +54,8 @@ public class MainMenuActivity extends AppCompatActivity {
             TextView txDinheiro = (TextView)barra.findViewById(R.id.txMoney);
             TextView level = (TextView)barra.findViewById(R.id.txLvl);
             TextView texp = (TextView)barra.findViewById(R.id.txExp);
-            txDinheiro.setText("$" + String.valueOf(Avatar.money));
-            texp.setText(String.valueOf(Avatar.exp) + "/" + Avatar.levels[Avatar.level +1]);
+            txDinheiro.setText("$" + Avatar.money);
+            texp.setText(Avatar.exp + "/" + Avatar.levels[Avatar.level +1]);
             level.setText(String.valueOf(Avatar.level));
             Avatar.saveCharacter();
 

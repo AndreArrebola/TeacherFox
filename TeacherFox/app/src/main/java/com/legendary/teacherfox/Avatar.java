@@ -2,6 +2,7 @@ package com.legendary.teacherfox;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.webkit.ConsoleMessage;
 
 /**
  * Created by andre on 12/10/16.
@@ -65,7 +66,7 @@ public class Avatar {
     public static void loadCharacter(Context context){
         saveFile = context.getSharedPreferences("save",Context.MODE_PRIVATE);
 
-        Avatar.nome= saveFile.getString("Nome raposa", "undefined");
+        Avatar.nome= saveFile.getString("NomeRaposa", "undefined");
         Avatar.money= saveFile.getInt("Dinheiro", 0);
         Avatar.exp= saveFile.getInt("Experiencia", 0);
         Avatar.level = saveFile.getInt("Nivel", 0);
@@ -77,11 +78,13 @@ public class Avatar {
     }
     public static void saveCharacter(){
         SharedPreferences.Editor editSave = saveFile.edit();
+        editSave.putString("NomeRaposa", Avatar.nome);
         editSave.putInt("Dinheiro", Avatar.money);
         editSave.putInt("Experiencia", Avatar.exp);
         editSave.putInt("Nivel", Avatar.level);
         editSave.putInt("Roupa", Avatar.idHat);
         editSave.putInt("Skin", Avatar.idSkin);
+
         editSave.apply();
     }
 

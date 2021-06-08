@@ -21,6 +21,8 @@ import com.legendary.teacherfox.databinding.ActivityLojaBinding;
 import com.legendary.teacherfox.databinding.BarraBinding;
 import com.legendary.teacherfox.databinding.QuestoesBinding;
 
+import java.util.Locale;
+
 public class Loja extends AppCompatActivity {
     private ActivityLojaBinding telaLoja;
     Cursor itens;
@@ -147,7 +149,7 @@ public class Loja extends AppCompatActivity {
                 TextView value2=(TextView)findViewById(R.id.iLoja2c);
                 TextView value2ok=(TextView)findViewById(R.id.iLoja2cok);
                 int buyvalue2=Integer.parseInt(value2.getText().toString());
-                if(dba.getBuy(2)==false){
+                if(!dba.getBuy(2)){
                     if(buyvalue2>Avatar.money){
                         Toast.makeText(getApplicationContext(),"Moedas Insuficientes!", Toast.LENGTH_SHORT).show();
                     }else{
@@ -210,12 +212,12 @@ public class Loja extends AppCompatActivity {
         DBAdapter acesso = new DBAdapter(getBaseContext());
         itens=acesso.ObterLoja();
         DBAdapter dba=new DBAdapter(this);
-        TextView li1=(TextView)findViewById(R.id.iLoja1c);
-        ImageView li1i=(ImageView)findViewById(R.id.iloja1p);
-        TextView li1ok=(TextView)findViewById(R.id.iLoja1cok);
-        TextView li2=(TextView)findViewById(R.id.iLoja2c);
-        ImageView li2i=(ImageView)findViewById(R.id.iLoja2p);
-        TextView li2ok=(TextView)findViewById(R.id.iLoja2cok);
+        TextView li1= telaLoja.iLoja1c;
+        ImageView li1i= telaLoja.iloja1p;
+        TextView li1ok= telaLoja.iLoja1cok;
+        TextView li2= telaLoja.iLoja2c;
+        ImageView li2i= telaLoja.iLoja2p;
+        TextView li2ok= telaLoja.iLoja2cok;
         if(itens!=null && itens.moveToFirst()){
             criarBotaoItem(1, dba,  li1, li1ok, li1i );
 
@@ -228,7 +230,7 @@ public class Loja extends AppCompatActivity {
     }
     public void criarBotaoItem(int idItem, DBAdapter dba, TextView labelItem, TextView labelComprado, ImageView iconeItem){
         if(!dba.getBuy(idItem)){
-            labelItem.setText(Integer.toString(itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
+            labelItem.setText(String.format(Locale.getDefault(),"%d", itens.getInt(itens.getColumnIndex(DBHelper.VALORITEM))));
 
         }else{
             labelItem.setVisibility(View.INVISIBLE);
